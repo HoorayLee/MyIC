@@ -1,0 +1,111 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps;assembly=Microsoft.Phone.Maps"
+    xmlns:maps1="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    x:Class="PanoramaApp1.MainPage"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Landscape"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!-- 本地化说明:
+            若要本地化显示的字符串，请将其值复制到应用程序的非特定语言资源文件(AppResources.resx)
+            中的适当命名的键，然后
+            将属性的引号之间的硬编码文本值
+            替换为其路径指向该字符串名称的绑定子句。
+
+            例如:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            此绑定指向模板的名为“ApplicationTitle”的字符串资源。
+
+            在“项目属性”选项卡中添加受支持的语言将会为
+            每种语言创建一个新的 resx 文件，该文件可以包含 UI 字符串的翻译值
+            。这些示例中的绑定将导致在运行时从
+            与应用程序的 CurrentUICulture 匹配的 .resx 文件中
+            提取属性的值。
+         -->
+
+        <!--Panorama 控件-->
+        <phone:Panorama Title="" Loaded="Panorama_Loaded">
+            <phone:Panorama.Background>
+                <ImageBrush ImageSource="/PanoramaApp1;component/Assets/PanoramaBackground.png"/>
+            </phone:Panorama.Background>
+
+            <!--Panorama 项目一-->
+            <phone:PanoramaItem Header="eDentist" Height="765">
+                <!--具有文字环绕的单行列表-->
+                <Button Content="Scan Now" HorizontalAlignment="Left" Height="78" Margin="28,530,0,0" VerticalAlignment="Top" Width="344" Click="ScanClick"/>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Height="761" Header="History">
+
+                <StackPanel HorizontalAlignment="Left" Height="608" Margin="-2,-8,0,0" VerticalAlignment="Top" Width="412">
+                    <Button Name="test" HorizontalAlignment="Left" Height="170" Margin="85,30,0,10" Width="240" Click="Button_Click">
+                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166"/>
+                    </Button>
+                    <maps1:Map HorizontalAlignment="Left" Height="158" Margin="85,0,0,0" Width="240"/>
+
+                    <Button  HorizontalAlignment="Left" Height="170" Margin="85,0,0,10" Width="240" Click="Button_Click_1">
+                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166" />
+                    </Button>
+                </StackPanel>
+
+            </phone:PanoramaItem>
+
+            <!--全景项目三-->
+            <phone:PanoramaItem Header="Recent Call" Height="761">
+                <!--具有大型图像占位符的双倍宽度的全景-->
+                <phone:LongListSelector Margin="0,-38,-22,-86" ItemsSource="{Binding Items}" Height="761" VerticalAlignment="Bottom">
+                    <phone:LongListSelector.ListHeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="12,0,0,38">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Contactors"
+									Style="{StaticResource PanoramaItemHeaderTextStyle}"
+									Grid.Row="0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </phone:LongListSelector.ListHeaderTemplate>
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="12,2,0,4" Height="105" Width="432">
+                                <!--用图像替换矩形-->
+                                <Border BorderThickness="1" Width="99" Height="99" BorderBrush="#FFFFC700" Background="#FFFFC700"/>
+                                <StackPanel Width="311" Margin="8,-7,0,0">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" />
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="10,-2,10,0" Style="{StaticResource PhoneTextSubtleStyle}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PanoramaItem>
+
+        </phone:Panorama>
+
+        <!--取消注释，以显示对齐网格，从而帮助确保
+            控件在公用边界上对齐。图像在系统栏中显示时的
+            上边距为 -32px。如果隐藏了系统栏，则将此值设为 0
+            (或完全删除边距)。
+
+            在发送之前删除此 XAML 和图像本身。-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+
+    </Grid>
+</phone:PhoneApplicationPage>
