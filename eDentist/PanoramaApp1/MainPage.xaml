@@ -15,6 +15,41 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Landscape"
     shell:SystemTray.IsVisible="False">
+	<phone:PhoneApplicationPage.Resources>
+		<Style x:Key="LongListSelectorStyle1" TargetType="phone:LongListSelector">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="phone:LongListSelector">
+						<Grid Background="{TemplateBinding Background}" d:DesignWidth="480" d:DesignHeight="800">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="ScrollStates">
+									<VisualStateGroup.Transitions>
+										<VisualTransition GeneratedDuration="00:00:00.5"/>
+									</VisualStateGroup.Transitions>
+									<VisualState x:Name="Scrolling">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="VerticalScrollBar"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="NotScrolling"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Grid Margin="{TemplateBinding Padding}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*"/>
+									<ColumnDefinition Width="auto"/>
+								</Grid.ColumnDefinitions>
+								<ViewportControl x:Name="ViewportControl" HorizontalContentAlignment="Stretch" VerticalAlignment="Top" Content="jijiji"/>
+								<ScrollBar x:Name="VerticalScrollBar" Grid.Column="1" Margin="4,0,4,0" Opacity="0" Orientation="Vertical"/>
+							</Grid>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot 是包含所有页面内容的根网格-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -53,13 +88,12 @@
             <phone:PanoramaItem Height="761" Header="History">
 
                 <StackPanel HorizontalAlignment="Left" Height="608" Margin="-2,-8,0,0" VerticalAlignment="Top" Width="412">
-                    <Button Name="test" HorizontalAlignment="Left" Height="170" Margin="85,30,0,10" Width="240" Click="Button_Click">
-                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166"/>
-                    </Button>
-                    <maps1:Map HorizontalAlignment="Left" Height="158" Margin="85,0,0,0" Width="240"/>
 
-                    <Button  HorizontalAlignment="Left" Height="170" Margin="85,0,0,10" Width="240" Click="Button_Click_1">
-                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166" />
+                    <maps1:Map HorizontalAlignment="Left" Height="264" Margin="10,0,0,0" Width="392"/>
+                    <Button x:Name="Result" HorizontalAlignment="Left" Height="156" Margin="10,30,0,10" Width="392" Click="Button_Click" Background="#FFD0DC5A" BorderBrush="{StaticResource TransparentBrush}" Content="{Binding DetectResult}"/>
+
+                    <Button  x:Name="Recommend" HorizontalAlignment="Left" Height="144" Margin="10,0,0,10" Width="392" Click="Button_Click_1" BorderBrush="{StaticResource TransparentBrush}" Background="#FF14F096" Content="{Binding Recommend}">
+                      
                     </Button>
                 </StackPanel>
 
@@ -68,7 +102,7 @@
             <!--全景项目三-->
             <phone:PanoramaItem Header="Recent Call" Height="761">
                 <!--具有大型图像占位符的双倍宽度的全景-->
-                <phone:LongListSelector Margin="0,-38,-22,-86" ItemsSource="{Binding Items}" Height="761" VerticalAlignment="Bottom">
+                <phone:LongListSelector Margin="0,-38,-22,-86" ItemsSource="{Binding Items}" Height="761" VerticalAlignment="Bottom" Style="{StaticResource LongListSelectorStyle1}">
                     <phone:LongListSelector.ListHeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="12,0,0,38">

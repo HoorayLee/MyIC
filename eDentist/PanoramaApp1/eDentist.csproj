@@ -19,7 +19,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>PanoramaApp1_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>eDentist_Debug_AnyCPU.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>PanoramaApp1.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>

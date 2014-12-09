@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="zh-CN" />
-  <App xmlns="" ProductID="{004f5c82-6719-4eb2-9fca-6a276f794eaf}" Title="PanoramaApp1" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PanoramaApp1 author" Description="Sample description" Publisher="PanoramaApp1" PublisherID="{3c4befbd-488c-4734-a82d-86e80cb51e1f}">
+  <App xmlns="" ProductID="{004f5c82-6719-4eb2-9fca-6a276f794eaf}" Title="eDentist" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PanoramaApp1 author" Description="Sample description" Publisher="PanoramaApp1" PublisherID="{3c4befbd-488c-4734-a82d-86e80cb51e1f}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -21,7 +21,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>PanoramaApp1</Title>
+          <Title>eDentist</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>
