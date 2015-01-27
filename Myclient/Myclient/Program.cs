@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.IO;
 using sendImg;
 
-namespace Myclient
+namespace MyClient
 {
     class Program
     {
@@ -16,8 +16,9 @@ namespace Myclient
         {
             try
             {
-                int port = 8080;
+                int port = 10000;
                 string host = "127.0.0.1";
+                //string host = "192.168.1.208";
                 IPAddress ipa = IPAddress.Parse(host);
                 IPEndPoint ipe = new IPEndPoint(ipa, port);//把ip和端口转化为ipendpoint实例
                 //Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);//创建一个socket
@@ -32,8 +33,11 @@ namespace Myclient
                     //Console.WriteLine("SendMessage");
                     //s.Send(bs, bs.Length, 0);//发送测试信息
 
-                    sendImg.SendImg Newpic = new sendImg.SendImg();
-                    Newpic.SendImageToServer("C:\\Users\\leehorray\\Desktop\\期末啦logo.png", host);
+                for (int i = 0; i < 10; i++)
+                {
+                    SendImg.SendImage("C:\\Users\\Tony\\Desktop\\0.png", ipe);
+                    
+                }
 
 
                     //string recvStr = "";
