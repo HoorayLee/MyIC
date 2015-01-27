@@ -4,3 +4,6 @@ c:\users\leehorray\documents\visual studio 2013\Projects\Myclient\Myclient\bin\D
 c:\users\leehorray\documents\visual studio 2013\Projects\Myclient\Myclient\obj\Debug\Myclient.exe
 c:\users\leehorray\documents\visual studio 2013\Projects\Myclient\Myclient\obj\Debug\Myclient.pdb
 c:\users\leehorray\documents\visual studio 2013\Projects\Myclient\Myclient\obj\Debug\Myclient.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\GitHub\MyIC\Myclient\Myclient\bin\Debug\Myclient.exe.config
+C:\Users\Tony\Documents\GitHub\MyIC\Myclient\Myclient\obj\Debug\Myclient.exe
+C:\Users\Tony\Documents\GitHub\MyIC\Myclient\Myclient\obj\Debug\Myclient.pdb
