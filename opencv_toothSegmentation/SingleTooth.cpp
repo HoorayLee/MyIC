@@ -32,11 +32,11 @@ int detectIllness(IplImage *img, IplImage *markers, int toothIndex)
 	float darkPercent = (float)nbDark / nbPixels;
 
 	//根据统计得到的黑色像素数量百分比判定龋齿深浅
-	if (darkPercent < 0.01f)
+	if (darkPercent < 0.001f)
 	{
 		result &= ILLNESS_DECAY_MASK;
 	}
-	else if (darkPercent < 0.02f)
+	else if (darkPercent < 0.01f)
 	{
 		result |= ILLNESS_DECAY_LIGHT;
 	}

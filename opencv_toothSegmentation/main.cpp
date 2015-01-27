@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv)
 {
-	char *fileName = argc > 1 ? argv[1] : (char *)"2.bmp";
+	char *fileName = argc > 1 ? argv[1] : (char *)"21.bmp";
 	
 	std::vector<int> vec = analyze(fileName);
 
