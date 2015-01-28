@@ -1,2 +1,5 @@
 opencv_toothSegmentation是第一个可以演示的小Demo
-MyServer有改动，正在尝试与算法相结合
+MyServer已经挂在121.42.136.178的10000端口上
+算法还差得很远，但opencv和.net环境已经架设完成
+
+发送图片到121.42.136.178的10000端口上，会返回一个json数组（可参考MyClient的实现），json的解析可以采用newtonsoft.json
