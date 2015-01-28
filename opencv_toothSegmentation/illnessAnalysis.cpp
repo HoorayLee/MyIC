@@ -190,7 +190,7 @@ std::vector<int> analyze(const char *fileName)
 
 	//分水岭算法
 	cvWatershed(img0, markers);
-	cvSave("markers.xml", markers);
+
 
 #pragma region Depart
 	//切分粘合的牙齿
@@ -285,6 +285,7 @@ std::vector<int> analyze(const char *fileName)
 		}
 	}
 
+	cvSave("markers.xml", markers);
 	cvReleaseMemStorage(&tempStorage);
 #pragma endregion
 

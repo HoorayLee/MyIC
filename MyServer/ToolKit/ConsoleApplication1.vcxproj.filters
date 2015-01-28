@@ -18,9 +18,15 @@
     <ClCompile Include="illnessAnalysis.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SingleTooth.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="illnessAnalysis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleTooth.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

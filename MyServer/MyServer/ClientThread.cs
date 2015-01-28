@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace MyServer
 {
@@ -17,6 +17,8 @@ namespace MyServer
         private NetworkStream netStream;
         private TcpClient tcpClient;
         private string fileName;
+        private long fileLen;
+        private long readLen;
 
         private ClientThread() { }
 
@@ -37,28 +39,33 @@ namespace MyServer
         private void ReadAsyncCallBack(IAsyncResult result)
         {
             int readCount = netStream.EndRead(result);
-            if (readCount == 0)
+            fileStream.Write(buf, 0, readCount);
+            readLen += readCount;
+
+            if (readLen == fileLen)
             {
                 fileStream.Close();
-                fileStream.Dispose();
                 Console.WriteLine("File Received: " + fileName);
 
-                int illType = Util.analyze(fileName);
-
+                MyServer.Util.Illnesses illType = Util.analyze(fileName);
+                int nbTeeth = illType.nbTeeth;
+                int[] ints = new int[nbTeeth];
+                Marshal.Copy(illType.illnesses, ints, 0, nbTeeth);
                 JObject jObj = new JObject(
                     new JProperty("userId", 123),
-                    new JProperty("illType", new JArray(
-                        1, 2, 4)));
+                    new JProperty("nbTeeth", nbTeeth),
+                    new JProperty("illType", new JArray(ints)));
 
                 string jStr = jObj.ToString();
                 byte[] bytes = Encoding.Default.GetBytes(jStr);
 
-                netStream.Write(bytes, 0, bytes.Length);
+                //将json返回给客户端
+                if (netStream.CanWrite)
+                {
+                    netStream.Write(bytes, 0, bytes.Length);
+                }
                 return;
             }
-
-            fileStream.Write(buf, 0, readCount);
-
             netStream.BeginRead(buf, 0, buf.Length, ReadAsyncCallBack, null);
         }
 
@@ -71,8 +78,41 @@ namespace MyServer
             {
                 netStream = tcpClient.GetStream();
                 fileStream = new FileStream(fileName, FileMode.Create);
-                if (netStream.DataAvailable)
-                    netStream.BeginRead(buf, 0, buf.Length, ReadAsyncCallBack, null);
+                while (!netStream.DataAvailable) ;
+                byte[] bytes = new byte[sizeof(long)];
+                netStream.Read(bytes, 0, bytes.Length);
+                fileLen = BitConverter.ToInt64(bytes, 0);
+
+                Console.WriteLine("{0}: {1} Bytes", fileName, fileLen);
+                readLen = 0;
+                //netStream.BeginRead(buf, 0, buf.Length, ReadAsyncCallBack, null);
+                while (readLen < fileLen)
+                {
+                    int readCount = netStream.Read(buf, 0, buf.Length);
+                    fileStream.Write(buf, 0, readCount);
+                    readLen += readCount;
+                }
+
+                fileStream.Close();
+                Console.WriteLine("File Received: " + fileName);
+
+                MyServer.Util.Illnesses illType = Util.analyze(fileName);
+                int nbTeeth = illType.nbTeeth;
+                int[] ints = new int[nbTeeth];
+                Marshal.Copy(illType.illnesses, ints, 0, nbTeeth);
+                JObject jObj = new JObject(
+                    new JProperty("userId", 123),
+                    new JProperty("nbTeeth", nbTeeth),
+                    new JProperty("illType", new JArray(ints)));
+
+                string jStr = jObj.ToString();
+                byte[] jBytes = Encoding.Default.GetBytes(jStr);
+
+                //将json返回给客户端
+                if (netStream.CanWrite)
+                {
+                    netStream.Write(jBytes, 0, jBytes.Length);
+                }
 
             }
             catch (Exception e)

@@ -17,7 +17,8 @@ namespace MyClient
             try
             {
                 int port = 10000;
-                string host = "127.0.0.1";
+                //string host = "127.0.0.1";
+                string host = "121.42.136.178";
                 //string host = "192.168.1.208";
                 IPAddress ipa = IPAddress.Parse(host);
                 IPEndPoint ipe = new IPEndPoint(ipa, port);//把ip和端口转化为ipendpoint实例
@@ -33,23 +34,13 @@ namespace MyClient
                     //Console.WriteLine("SendMessage");
                     //s.Send(bs, bs.Length, 0);//发送测试信息
 
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 1; i++)
                 {
-                    SendImg.SendImage("C:\\Users\\Tony\\Desktop\\0.png", ipe);
-                    
+                    SendImg.SendImage("2.bmp", ipe);
                 }
 
-
-                    //string recvStr = "";
-                    //byte[] recvBytes = new byte[1024];
-                    //int bytes;
-                    //bytes = s.Receive(recvBytes, recvBytes.Length, 0);//从服务器端接收返回信息
-                    //recvStr += Encoding.ASCII.GetString(recvBytes, 0, bytes);
-                    Console.WriteLine("GOOD");
-                    Thread.Sleep(1000);
-               // }
-                //显示服务器返回信息
-               
+                Console.WriteLine("GOOD");
+                Thread.Sleep(1000);
             }
             catch (ArgumentNullException ex)
             { Console.WriteLine(ex); }

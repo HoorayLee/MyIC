@@ -14,7 +14,17 @@ F:\Imagine Cup\MyClient\MyClient\bin\Debug\Myclient.exe.config
 F:\Imagine Cup\MyClient\MyClient\obj\Debug\Myclient.exe
 F:\Imagine Cup\MyClient\MyClient\obj\Debug\Myclient.pdb
 F:\Imagine Cup\MyClient\MyClient\bin\Debug\Myclient.exe
-F:\Imagine Cup\MyClient\MyClient\bin\Debug\Newtonsoft.Json.dll
-F:\Imagine Cup\MyClient\MyClient\bin\Debug\Newtonsoft.Json.xml
 F:\Imagine Cup\MyClient\MyClient\obj\Debug\MyClient.csprojResolveAssemblyReference.cache
 F:\Imagine Cup\MyClient\MyClient\bin\Debug\Myclient.pdb
+F:\Imagine Cup\MyClient\MyClient\bin\Debug\Newtonsoft.Json.dll
+F:\Imagine Cup\MyClient\MyClient\bin\Debug\Newtonsoft.Json.pdb
+F:\Imagine Cup\MyClient\MyClient\bin\Debug\Newtonsoft.Json.xml
+D:\MyClient\MyClient\bin\Debug\Myclient.exe.config
+D:\MyClient\MyClient\obj\Debug\Myclient.exe
+D:\MyClient\MyClient\obj\Debug\Myclient.pdb
+D:\MyClient\MyClient\bin\Debug\Myclient.exe
+D:\MyClient\MyClient\bin\Debug\Myclient.pdb
+D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.dll
+D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.pdb
+D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.xml
+D:\MyClient\MyClient\obj\Debug\MyClient.csprojResolveAssemblyReference.cache

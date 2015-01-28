@@ -5,7 +5,6 @@ using System.Threading;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using System.Drawing;
 
 namespace MyServer
 {
@@ -14,12 +13,13 @@ namespace MyServer
         //文件序号
         private static int indexFile;   
         //文件保存路径
-        private const string PATHNAME = "D:\\Received\\";
+        private const string PATHNAME = "C:\\Received\\";
         //文件后缀名
         private const string POSTFIX = ".bmp";
 
+        private const string IPADDR = "121.42.136.178";
         //private const string IPADDR = "192.168.1.208";
-        private const string IPADDR = "127.0.0.1";
+        //private const string IPADDR = "127.0.0.1";
         private const int PORT = 10000;
 
         public static void Main()
@@ -30,6 +30,11 @@ namespace MyServer
 
             IPAddress ip = IPAddress.Parse(IPADDR); //把ip地址字符串转换为IPAddress              
             IPEndPoint ipep = new IPEndPoint(ip, PORT);//用指定的端口和ip  
+
+            if (!Directory.Exists(PATHNAME))
+            {
+                Directory.CreateDirectory(PATHNAME);
+            }
 
             indexFile = 1;
 

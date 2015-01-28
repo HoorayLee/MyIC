@@ -10,6 +10,14 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="illnessAnalysis.cpp" />
+    <ClCompile Include="SingleTooth.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="illnessAnalysis.h" />
+    <ClInclude Include="SingleTooth.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{727508D3-74EA-46C3-B520-B8FC4B1F42B4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -20,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v120_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -79,12 +87,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="illnessAnalysis.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="illnessAnalysis.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

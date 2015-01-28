@@ -18,3 +18,13 @@ F:\Imagine Cup\MyServer\MyServer\bin\Debug\MyServer.pdb
 F:\Imagine Cup\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache
 F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.dll
 F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.xml
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.pdb
+D:\MyServer\MyServer\bin\Debug\MyServer.exe.config
+D:\MyServer\MyServer\obj\Debug\MyServer.exe
+D:\MyServer\MyServer\obj\Debug\MyServer.pdb
+D:\MyServer\MyServer\bin\Debug\MyServer.exe
+D:\MyServer\MyServer\bin\Debug\MyServer.pdb
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.dll
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.pdb
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.xml
+D:\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache

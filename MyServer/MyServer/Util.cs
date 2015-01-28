@@ -9,8 +9,15 @@ namespace MyServer
 {
     class Util
     {
-        [DllImport("..\\..\\..\\Debug\\ToolKit.dll", ExactSpelling = true, EntryPoint = "?analyze@@YGHPBD@Z", CallingConvention = CallingConvention.StdCall)]
-        public static extern int analyze(string fileName);
+        [DllImport("ToolKit.dll", ExactSpelling = true, EntryPoint = "?analyze@@YG?AU_Illnesses@@PBD@Z", CallingConvention = CallingConvention.StdCall)]
+        public static extern Illnesses analyze(string fileName);
 
+        [StructLayout(LayoutKind.Sequential)]
+        public struct Illnesses
+        {
+            public int nbTeeth;
+            public int status;
+            public IntPtr illnesses;
+        }
     }
 }
