@@ -1,0 +1,17 @@
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.exe
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.pdb
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.csprojResolveAssemblyReference.cache
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.MainForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.csproj.GenerateResource.Cache
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.exe
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.pdb
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
