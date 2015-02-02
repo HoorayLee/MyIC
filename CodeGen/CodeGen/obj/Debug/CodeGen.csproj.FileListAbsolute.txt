@@ -1,0 +1,9 @@
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\bin\Debug\CodeGen.exe
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\bin\Debug\CodeGen.pdb
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.csprojResolveAssemblyReference.cache
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.MainForm.resources
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.Properties.Resources.resources
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.csproj.GenerateResource.Cache
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.exe
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\obj\Debug\CodeGen.pdb
+c:\Users\Tony\Documents\Visual Studio 2013\Projects\CodeGen\CodeGen\bin\Debug\CodeGen.exe.config
