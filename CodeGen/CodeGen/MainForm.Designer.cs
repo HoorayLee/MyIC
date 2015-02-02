@@ -39,6 +39,8 @@
             this.tb_DAL = new System.Windows.Forms.TextBox();
             this.tb_namespace = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_genAll = new System.Windows.Forms.Button();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +82,7 @@
             // btn_gen
             // 
             this.btn_gen.Enabled = false;
-            this.btn_gen.Location = new System.Drawing.Point(533, 35);
+            this.btn_gen.Location = new System.Drawing.Point(452, 35);
             this.btn_gen.Name = "btn_gen";
             this.btn_gen.Size = new System.Drawing.Size(75, 23);
             this.btn_gen.TabIndex = 1;
@@ -128,19 +130,34 @@
             // 
             // tb_namespace
             // 
-            this.tb_namespace.Location = new System.Drawing.Point(334, 35);
+            this.tb_namespace.Location = new System.Drawing.Point(315, 35);
             this.tb_namespace.Name = "tb_namespace";
-            this.tb_namespace.Size = new System.Drawing.Size(193, 21);
+            this.tb_namespace.Size = new System.Drawing.Size(124, 21);
             this.tb_namespace.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(267, 39);
+            this.label3.Location = new System.Drawing.Point(256, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "命名空间";
+            // 
+            // btn_genAll
+            // 
+            this.btn_genAll.Enabled = false;
+            this.btn_genAll.Location = new System.Drawing.Point(533, 35);
+            this.btn_genAll.Name = "btn_genAll";
+            this.btn_genAll.Size = new System.Drawing.Size(75, 23);
+            this.btn_genAll.TabIndex = 1;
+            this.btn_genAll.Text = "生成所有";
+            this.btn_genAll.UseVisualStyleBackColor = true;
+            this.btn_genAll.Click += new System.EventHandler(this.btn_genAll_Click);
+            // 
+            // folderBrowserDialog
+            // 
+            this.folderBrowserDialog.Description = "选择存放的文件夹";
             // 
             // MainForm
             // 
@@ -151,6 +168,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cb_tables);
+            this.Controls.Add(this.btn_genAll);
             this.Controls.Add(this.btn_gen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -179,6 +197,8 @@
         private System.Windows.Forms.TextBox tb_DAL;
         private System.Windows.Forms.TextBox tb_namespace;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btn_genAll;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
 

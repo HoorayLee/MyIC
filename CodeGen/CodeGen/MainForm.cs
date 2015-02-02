@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +17,7 @@ namespace CodeGen
     public partial class MainForm : Form
     {
         private static readonly string connStr = ConfigurationManager.ConnectionStrings["Geek"].ConnectionString;
+        private static readonly string newLine = Environment.NewLine;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -33,27 +37,13 @@ namespace CodeGen
         private void button1_Click(object sender, EventArgs e)
         {
             string connStr = tb_connStr.Text;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            string[] tableNames = GetTableNames(connStr);
+            if (tableNames != null)
             {
-                conn.Open();
-                using (SqlCommand cmd = conn.CreateCommand())
-                {
-                    cmd.CommandText = "select table_name from information_schema.tables where table_type = 'base table'";
-                    DataSet dataSet = new DataSet();
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    adapter.FillSchema(dataSet, SchemaType.Source);
-                    adapter.Fill(dataSet);
-
-                    DataTable table = dataSet.Tables[0];
-                    foreach (DataRow row in table.Rows)
-                    {
-                        string tableName = (string)row["table_name"];
-                        cb_tables.Items.Add(tableName);
-                    }
-
-                    cb_tables.Enabled = true;
-                    btn_gen.Enabled = true;
-                }
+                cb_tables.Items.AddRange(tableNames);
+                cb_tables.Enabled = true;
+                btn_gen.Enabled = true;
+                btn_genAll.Enabled = true;
             }
         }
 
@@ -174,8 +164,15 @@ namespace CodeGen
 
             builder.AppendLine("}");
 
+            //如果输入命名空间
+            if (!string.IsNullOrWhiteSpace(tb_namespace.Text))
+            {
+                builder = AddNameSpaceToCode(builder, nameSpace);
+            }
+
             return builder.ToString();
         }
+
 
         /// <summary>
         /// 生成数据模型
@@ -187,40 +184,37 @@ namespace CodeGen
         {
             StringBuilder builder = new StringBuilder();
 
-            //是否输入命名空间
-            if (string.IsNullOrWhiteSpace(nameSpace))
+            builder.Append("public class ").AppendLine(FirstLetterUpper(tableName) + "Model");
+            builder.AppendLine("{");
+
+            DataTable table = SqlHelper.ExecuteDataTable("select top 0 * from [" + tableName + "]");
+
+            foreach (DataColumn col in table.Columns)
             {
-                builder.Append("public class ").AppendLine(FirstLetterUpper(tableName) + "Model");
-                builder.AppendLine("{");
-
-                DataTable table = SqlHelper.ExecuteDataTable("select top 0 * from [" + tableName + "]");
-
-                foreach (DataColumn col in table.Columns)
-                {
-                    builder.Append("\tpublic ").Append(GetColumnType(col) + " ").Append(FirstLetterUpper(col.ColumnName)).AppendLine("{ get; set; }");
-                }
-
-                builder.AppendLine("}");
-                return builder.ToString(); 
+                builder.Append("\tpublic ").Append(GetColumnType(col) + " ").Append(FirstLetterUpper(col.ColumnName)).AppendLine("{ get; set; }");
             }
-            else
+
+
+
+            //结尾大括号
+            builder.AppendLine("}");
+
+            //如果输入命名空间
+            if (!string.IsNullOrWhiteSpace(tb_namespace.Text))
             {
-                builder.Append("namespace ").AppendLine(nameSpace);
-                builder.AppendLine("{");
-                builder.Append("\tpublic class ").AppendLine(FirstLetterUpper(tableName));
-                builder.AppendLine("\t{");
-
-                DataTable table = SqlHelper.ExecuteDataTable("select top 0 * from [" + tableName + "]");
-
-                foreach (DataColumn col in table.Columns)
-                {
-                    builder.Append("\t\tpublic ").Append(GetColumnType(col) + " ").Append(col.ColumnName).AppendLine("{ get; set; }");
-                }
-
-                builder.AppendLine("\t}");
-                builder.AppendLine("}");
-                return builder.ToString();
+                builder = AddNameSpaceToCode(builder, nameSpace);
             }
+
+            return builder.ToString(); 
+        }
+
+        private StringBuilder AddNameSpaceToCode(StringBuilder builder, string nameSpace)
+        {
+            builder = InsertTabForEveryLine(builder);
+            builder.Insert(0, "{" + newLine);
+            builder.Insert(0, "namespace " + nameSpace + newLine);
+            builder.AppendLine("}");
+            return builder;
         }
 
         private string GetColumnType(DataColumn col)
@@ -330,6 +324,105 @@ namespace CodeGen
             }
 
             return builder.ToString();
+        }
+
+
+        /// <summary>
+        /// 在每行之前加上\t，即向右缩进
+        /// </summary>
+        /// <param name="builder"></param>
+        private StringBuilder InsertTabForEveryLine(StringBuilder builder)
+        {
+            //当前环境中的换行是\n还是\r\n
+            builder.Replace(newLine, newLine + "\t");
+            builder.Insert(0, "\t");
+            
+            //因为是回车结尾：删除增加的\t
+            builder.Remove(builder.Length - newLine.Length, newLine.Length);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// 点击事件：生成所有文件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_genAll_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string dirPath = folderBrowserDialog.SelectedPath;
+                //System.IO.Path.Combine()
+                string connStr = tb_connStr.Text;
+                string[] tableNames = GetTableNames(connStr);
+                string nameSpace = tb_namespace.Text.Trim();
+
+                //1.生成Model代码文件
+                int i;
+                string modelDirPath = Path.Combine(dirPath, "Model\\");
+                if (!Directory.Exists(modelDirPath))
+                {
+                    Directory.CreateDirectory(modelDirPath);
+                }
+
+                for (i = 0; i < tableNames.Length; i++)
+                {
+                    string tableName = tableNames[i];
+                    string modelStr = GenModels(tableName, nameSpace);
+                    string className = FirstLetterUpper(tableName) + "Model.cs";
+                    File.WriteAllText(Path.Combine(modelDirPath, className), modelStr, Encoding.Default);
+                }
+
+                //2.生成DAL的代码文件
+                string DALDirPath = Path.Combine(dirPath, "DAL\\");
+                if (!Directory.Exists(DALDirPath))
+                {
+                    Directory.CreateDirectory(DALDirPath);
+                }
+
+                for (i = 0; i < tableNames.Length; i++)
+                {
+                    string tableName = tableNames[i];
+                    string DALStr = GenDAL(tableName, nameSpace);
+                    string className = FirstLetterUpper(tableName) + "DAL.cs";
+                    File.WriteAllText(Path.Combine(DALDirPath, className), DALStr, Encoding.Default);
+                }
+
+                MessageBox.Show("生成完成");
+            }
+        }
+
+        private string[] GetTableNames(string connStr)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return null;
+                }
+                
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "select table_name from information_schema.tables where table_type = 'base table'";
+                    DataSet dataSet = new DataSet();
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.FillSchema(dataSet, SchemaType.Source);
+                    adapter.Fill(dataSet);
+                    DataTable table = dataSet.Tables[0];
+                    string[] tableNames = new string[table.Rows.Count];
+                    for (int i = 0; i < table.Rows.Count; i++)
+                    {
+                        tableNames[i] = (string)table.Rows[i]["table_name"];
+                    }
+                    return tableNames;
+                }
+            }
         }
     }
 }
