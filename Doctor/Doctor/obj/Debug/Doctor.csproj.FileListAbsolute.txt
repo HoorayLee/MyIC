@@ -15,3 +15,4 @@ c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doct
 c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
 c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
 c:\users\tony\documents\visual studio 2013\Projects\Doctor\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.exe.config

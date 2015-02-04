@@ -1,0 +1,8 @@
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\bin\Debug\Doctor.Model.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\bin\Debug\Doctor.Model.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\obj\Debug\Doctor.Model.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\obj\Debug\Doctor.Model.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\obj\Debug\Doctor.Model.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.Model\bin\Debug\Newtonsoft.Json.xml
