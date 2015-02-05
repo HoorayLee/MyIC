@@ -51,6 +51,11 @@ namespace Doctor
                         result = Encoding.UTF8.GetString(memoryStream.ToArray());
                     }
                 }
+                else
+                {
+                    StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                    result = reader.ReadToEnd();
+                }
                 return result;
             }
             catch (Exception)

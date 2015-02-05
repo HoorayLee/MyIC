@@ -25,7 +25,7 @@ namespace Doctor.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:19710/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://121.42.136.178:19710/")]
         public string ServerBaseUrl {
             get {
                 return ((string)(this["ServerBaseUrl"]));
