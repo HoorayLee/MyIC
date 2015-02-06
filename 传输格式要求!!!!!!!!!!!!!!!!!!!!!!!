@@ -27,6 +27,7 @@ url: SelfCheckHandler.ashx:
 需要反序列化成PhotoModel)} }
 
 5.医生诊断添加
+医生端要根据医生的信息判断医生是否通过认证，如没有则不能添加诊断（输入框禁用）
 url: DiagnosisHandler.ashx
 发送：JsonConvert.SerializeObject()序列化的DiagnosisModel对象
 返回：json {"state":"success"/"failed"}
