@@ -25,3 +25,8 @@ url: SelfCheckHandler.ashx:
 发送：long型的编号（第n条数据对应的图片地址）
 返回：{"count": 2（与该记录相关的图片数量）, 仍然是一个JArray数组{[{},{},{}...(与上面类似，每个{}是一个PhotoModel的json字符串
 需要反序列化成PhotoModel)} }
+
+5.医生诊断添加
+url: DiagnosisHandler.ashx
+发送：JsonConvert.SerializeObject()序列化的DiagnosisModel对象
+返回：json {"state":"success"/"failed"}
