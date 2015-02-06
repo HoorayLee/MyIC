@@ -15,3 +15,13 @@ url: PicDownloadHandler.ashx:
 发送：借助HttpHelper中的DownloadFile，文件路径（UserModel里面有）
 接收：存到本地缓存即可（最好保存在系统的roaming文件夹内，就像QQ roaming文件夹分QQ号保存缓存文件一样）
 
+4.自检记录查询
+url: SelfCheckHandler.ashx:
+发送有两种选择
+(1)
+发送：ListAll(取的所有本地区的自检结果（现在还做不到本地区，先返回所有）)
+返回：{"count": 11, "content": [{},{},{}...]} "content"后面是一个JArray数组，其中每一项需要JsonConvert.DeserializeObject反序列化为RecordModel
+(2)
+发送：long型的编号（第n条数据对应的图片地址）
+返回：{"count": 2（与该记录相关的图片数量）, 仍然是一个JArray数组{[{},{},{}...(与上面类似，每个{}是一个PhotoModel的json字符串
+需要反序列化成PhotoModel)} }
