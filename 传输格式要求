@@ -1,0 +1,11 @@
+1.
+url：PicUploadHandler.ashx: 
+发送：使用HttpHelper中的UploadFile发送
+接收：UploadFile的返回值为该图片文件的新文件名，此文件名作为注册时上传图片的文件路径
+
+2.注册
+url：RegisterHandler.ashx:
+点击注册时，先用HttpHelper的UploadFile把图片（照片，执照（如果有的话））上传到PicUploadHandler.ashx
+记录返回的文件名并做为注册时的参数，new DoctorModel把输入的东西填好，使用JsonConvert.DeserializeObject()把
+DoctorModel实例序列化发送到RegisterHandler.ashx
+（即先把该传的图片上传到服务器，再把注册信息发送到服务器）
