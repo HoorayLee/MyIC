@@ -102,7 +102,35 @@ namespace Doctor
         {
             //判断本地是否有图片缓存，如是则不用下载图片
 
-            WebClient client = new WebClient();
+            //下载图片
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            byte[] fileNameBytes = Encoding.UTF8.GetBytes(fileName);
+            request.Method = "POST";
+            request.GetRequestStream().Write(fileNameBytes, 0, fileNameBytes.Length);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            Stream responseStream = response.GetResponseStream();
+
+            //存放文件夹
+            string dirPath = Environment.CurrentDirectory + "/DownloadFiles/";
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+
+            //写入文件
+            using(FileStream fileStream = new FileStream(Environment.CurrentDirectory + 
+                "/DownloadFiles/" + fileName, FileMode.Create, FileAccess.Write))
+            {
+                byte[] buf = new byte[1024];
+                int readCount = responseStream.Read(buf, 0, buf.Length);
+                while (readCount > 0)
+                {
+                    fileStream.Write(buf, 0, readCount);
+                    readCount = responseStream.Read(buf, 0, buf.Length);
+                }
+            }
         }
     }
 }

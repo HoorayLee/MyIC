@@ -6,5 +6,3 @@ C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.dll
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.pdb
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.pdb
-C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.xml
