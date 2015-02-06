@@ -69,8 +69,8 @@ namespace Doctor
         /// </summary>
         /// <param name="url">指定url地址：一个ashx文件</param>
         /// <param name="fileName">要上传文件的本地路径</param>
-        /// <returns>是否上传成功</returns>
-        public static bool UploadFile(string url, string fileName)
+        /// <returns>上传成功则返回GUID字符串（用于唯一标识一个图片）</returns>
+        public static string UploadFile(string url, string fileName)
         {
             url = ServerBaseUri + url;
             if (!File.Exists(fileName))
@@ -82,16 +82,27 @@ namespace Doctor
             {
                 using (WebClient client = new WebClient())
                 {
-                    string newFileName = Guid.NewGuid().ToString() + Path.GetExtension(fileName);
-                    client.Headers.Add("FileName", newFileName);
-                    client.UploadFile(url, "POST", fileName);
+                    byte[] bytes = client.UploadFile(url, "POST", fileName);
+                    string guidStr = Encoding.UTF8.GetString(bytes);
+                    return guidStr;
                 }
-                return true;
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
+        }
+
+        /// <summary>
+        /// 下载文件：用于下载个人信息的用户照片和执照
+        /// </summary>
+        /// <param name="url">指定url地址：一个ashx文件</param>
+        /// <param name="fileName">DoctorModel类中的文件路径</param>
+        public static void DownloadFile(string url, string fileName)
+        {
+            //判断本地是否有图片缓存，如是则不用下载图片
+
+            WebClient client = new WebClient();
         }
     }
 }

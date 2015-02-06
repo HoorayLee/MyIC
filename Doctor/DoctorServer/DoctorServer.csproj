@@ -68,10 +68,22 @@
     <Compile Include="LoginHandler.ashx.cs">
       <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="PicDownloadHandler.ashx.cs">
+      <DependentUpon>PicDownloadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PicUploadHandler.ashx.cs">
+      <DependentUpon>PicUploadHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterHandler.ashx.cs">
+      <DependentUpon>RegisterHandler.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoginHandler.ashx" />
+    <Content Include="PicDownloadHandler.ashx" />
+    <Content Include="PicUploadHandler.ashx" />
+    <Content Include="RegisterHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -88,6 +100,9 @@
       <Project>{d6025d65-5ac6-41fd-bbd5-8f1a0cec000f}</Project>
       <Name>Doctor.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

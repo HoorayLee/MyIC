@@ -10,20 +10,28 @@ namespace Doctor.DAL
 {
     public class DoctorDAL
     {
-        public static void Insert(DoctorModel doctor)
+        public static bool Insert(DoctorModel doctor)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into Doctor(@doc_id, @hospital_id, @password, @name, @photoPath, @hospital, @licenseNo, @licensePath, ifAuth)
-			values(doc_id, hospital_id, password, name, photoPath, hospital, licenseNo, licensePath, ifAuth)",
-                new SqlParameter("@doc_id", doctor.Doc_id),
-                new SqlParameter("@hospital_id", doctor.Hospital_id),
-                new SqlParameter("@password", doctor.Password),
-                new SqlParameter("@name", doctor.Name),
-                new SqlParameter("@photoPath", doctor.PhotoPath),
-                new SqlParameter("@hospital", doctor.Hospital),
-                new SqlParameter("@licenseNo", doctor.LicenseNo),
-                new SqlParameter("@licensePath", doctor.LicensePath),
-                new SqlParameter("@ifAuth", doctor.IfAuth)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Doctor(@doc_id, @hospital_id, @password, @name, @photoPath, @hospital, @licenseNo, @licensePath, ifAuth)
+			        values(doc_id, hospital_id, password, name, photoPath, hospital, licenseNo, licensePath, ifAuth)",
+                    new SqlParameter("@doc_id", doctor.Doc_id),
+                    new SqlParameter("@hospital_id", doctor.Hospital_id),
+                    new SqlParameter("@password", doctor.Password),
+                    new SqlParameter("@name", doctor.Name),
+                    new SqlParameter("@photoPath", doctor.PhotoPath),
+                    new SqlParameter("@hospital", doctor.Hospital),
+                    new SqlParameter("@licenseNo", doctor.LicenseNo),
+                    new SqlParameter("@licensePath", doctor.LicensePath),
+                    new SqlParameter("@ifAuth", doctor.IfAuth)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
         public static void DeleteById(long id)
@@ -103,6 +111,29 @@ namespace Doctor.DAL
         }
 
         /// <summary>
+        /// 检查医生用户名是否存在
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static bool CheckDoctorExist(string name)
+        {
+            DataTable table = SqlHelper.ExecuteDataTable("select * from Doctor where name = @name",
+                new SqlParameter("@name", name));
+            if (table.Rows.Count <= 0)
+            {
+                return false; 
+            }
+            else if (table.Rows.Count > 1)
+            {
+                throw new Exception("数据库异常：存在相同用户名的医生");
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
         /// 检查用户名和密码是否正确
         /// </summary>
         /// <param name="username"></param>
@@ -111,21 +142,15 @@ namespace Doctor.DAL
         /// <returns>正确返回用户所有信息</returns>
         public static DoctorModel CheckPassword(string name, string password, ref string state)
         {
-            DataTable table = SqlHelper.ExecuteDataTable("select * from Doctor where name = @name",
-                new SqlParameter("@name", name));
-            if (table.Rows.Count <= 0)
+            if (!CheckDoctorExist(name))
             {
                 state = "username not exist";
                 return null;
             }
-            else if (table.Rows.Count > 1)
-            {
-                throw new Exception("数据库异常：存在相同用户名的医生");
-            }
             else
             {
 
-                table = SqlHelper.ExecuteDataTable("select * from Doctor where name = @name and password = @password",
+                DataTable table = SqlHelper.ExecuteDataTable("select * from Doctor where name = @name and password = @password",
                     new SqlParameter("@name", name),
                     new SqlParameter("@password", password));
 
