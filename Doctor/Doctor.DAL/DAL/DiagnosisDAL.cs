@@ -10,41 +10,63 @@ namespace Doctor.DAL
 {
     public class DiagnosisDAL
     {
-        public static void Insert(DiagnosisModel diagnosis)
+        public static bool Insert(DiagnosisModel diagnosis)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into DiagnosisModel(@diagnosis_id, @record_id, @result, time)
-			values(diagnosis_id, record_id, result, time)",
-                new SqlParameter("@diagnosis_id", diagnosis.Diagnosis_id),
-                new SqlParameter("@record_id", diagnosis.Record_id),
-                new SqlParameter("@result", diagnosis.Result),
-                new SqlParameter("@time", diagnosis.Time)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Diagnosis(record_id, result, time)
+				values(@record_id, @result, @time)",
+                    new SqlParameter("@record_id", diagnosis.Record_id),
+                    new SqlParameter("@result", diagnosis.Result),
+                    new SqlParameter("@time", diagnosis.Time)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Diagnosis where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Diagnosis where diagnosis_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(DiagnosisModel diagnosis)
+        public static bool Update(DiagnosisModel diagnosis)
         {
-            SqlHelper.ExecuteNonQuery(@"update Diagnosis set
-			diagnosis_id = @diagnosis_id,
-			record_id = @record_id,
-			result = @result,
-			time = @time
-			where id = @id",
-                new SqlParameter("@diagnosis_id", diagnosis.Diagnosis_id),
-                new SqlParameter("@record_id", diagnosis.Record_id),
-                new SqlParameter("@result", diagnosis.Result),
-                new SqlParameter("@time", diagnosis.Time)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Diagnosis set
+				record_id = @record_id,
+				result = @result,
+				time = @time
+				where diagnosis_id = @diagnosis_id",
+                    new SqlParameter("@record_id", diagnosis.Record_id),
+                    new SqlParameter("@result", diagnosis.Result),
+                    new SqlParameter("@time", diagnosis.Time),
+                    new SqlParameter("@diagnosis_id", diagnosis.Diagnosis_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static DiagnosisModel GetById(long id)
+        public static DiagnosisModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Diagnosis where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Diagnosis where diagnosis_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {

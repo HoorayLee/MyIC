@@ -10,35 +10,60 @@ namespace Doctor.DAL
 {
     public class TelDAL
     {
-        public static void Insert(TelModel tel)
+        public static bool Insert(TelModel tel)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into TelModel(@hospital_id, TelNo)
-			values(hospital_id, TelNo)",
-                new SqlParameter("@hospital_id", tel.Hospital_id),
-                new SqlParameter("@TelNo", tel.TelNo)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Tel(TelNo, hospital_id)
+				values(@TelNo, @hospital_id)",
+                    new SqlParameter("@TelNo", tel.TelNo),
+                    new SqlParameter("@hospital_id", tel.Hospital_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Tel where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Tel where tel_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(TelModel tel)
+        public static bool Update(TelModel tel)
         {
-            SqlHelper.ExecuteNonQuery(@"update Tel set
-			hospital_id = @hospital_id,
-			TelNo = @TelNo
-			where id = @id",
-                new SqlParameter("@hospital_id", tel.Hospital_id),
-                new SqlParameter("@TelNo", tel.TelNo)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Tel set
+				TelNo = @TelNo,
+				hospital_id = @hospital_id
+				where tel_id = @tel_id",
+                    new SqlParameter("@TelNo", tel.TelNo),
+                    new SqlParameter("@hospital_id", tel.Hospital_id),
+                    new SqlParameter("@tel_id", tel.Tel_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static TelModel GetById(long id)
+        public static TelModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Tel where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Tel where tel_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -69,8 +94,9 @@ namespace Doctor.DAL
         private static TelModel ToModel(DataRow row)
         {
             TelModel tel = new TelModel();
-            tel.Hospital_id = (System.Int64)row["hospital_id"];
+            tel.Tel_id = (System.Int64)row["tel_id"];
             tel.TelNo = (System.String)row["telNo"];
+            tel.Hospital_id = (System.Int64)row["hospital_id"];
             return tel;
         }
     }

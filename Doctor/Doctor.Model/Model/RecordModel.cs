@@ -11,6 +11,7 @@ namespace Doctor.Model
         public System.Int64 User_id { get; set; }
         public System.String Description { get; set; }
         public System.DateTime Time { get; set; }
+        public System.Int32 Hat_area_id { get; set; }
     }
 
 }

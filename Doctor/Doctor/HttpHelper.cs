@@ -98,38 +98,47 @@ namespace Doctor
         /// </summary>
         /// <param name="url">指定url地址：一个ashx文件</param>
         /// <param name="fileName">DoctorModel类中的文件路径</param>
-        public static void DownloadFile(string url, string fileName)
+        /// <returns>下载成功与否</returns>
+        public static bool DownloadFile(string url, string fileName)
         {
             //判断本地是否有图片缓存，如是则不用下载图片
 
-            //下载图片
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            byte[] fileNameBytes = Encoding.UTF8.GetBytes(fileName);
-            request.Method = "POST";
-            request.GetRequestStream().Write(fileNameBytes, 0, fileNameBytes.Length);
-
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-
-            Stream responseStream = response.GetResponseStream();
-
-            //存放文件夹
-            string dirPath = Environment.CurrentDirectory + "/DownloadFiles/";
-            if (!Directory.Exists(dirPath))
+            try
             {
-                Directory.CreateDirectory(dirPath);
-            }
+                //下载图片
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                byte[] fileNameBytes = Encoding.UTF8.GetBytes(fileName);
+                request.Method = "POST";
+                request.GetRequestStream().Write(fileNameBytes, 0, fileNameBytes.Length);
 
-            //写入文件
-            using(FileStream fileStream = new FileStream(Environment.CurrentDirectory + 
-                "/DownloadFiles/" + fileName, FileMode.Create, FileAccess.Write))
-            {
-                byte[] buf = new byte[1024];
-                int readCount = responseStream.Read(buf, 0, buf.Length);
-                while (readCount > 0)
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+                Stream responseStream = response.GetResponseStream();
+
+                //存放文件夹
+                string dirPath = Environment.CurrentDirectory + "/DownloadFiles/";
+                if (!Directory.Exists(dirPath))
                 {
-                    fileStream.Write(buf, 0, readCount);
-                    readCount = responseStream.Read(buf, 0, buf.Length);
+                    Directory.CreateDirectory(dirPath);
                 }
+
+                //写入文件
+                using(FileStream fileStream = new FileStream(Environment.CurrentDirectory + 
+                    "/DownloadFiles/" + fileName, FileMode.Create, FileAccess.Write))
+                {
+                    byte[] buf = new byte[1024];
+                    int readCount = responseStream.Read(buf, 0, buf.Length);
+                    while (readCount > 0)
+                    {
+                        fileStream.Write(buf, 0, readCount);
+                        readCount = responseStream.Read(buf, 0, buf.Length);
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

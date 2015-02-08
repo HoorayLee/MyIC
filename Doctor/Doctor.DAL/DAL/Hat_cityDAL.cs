@@ -7,39 +7,7 @@ namespace Doctor.DAL
 
     public class Hat_cityDAL
     {
-        public static void Insert(Hat_cityModel hat_city)
-        {
-            SqlHelper.ExecuteNonQuery(@"insert into Hat_cityModel(@id, @cityID, @city, father)
-			values(id, cityID, city, father)",
-                new SqlParameter("@id", hat_city.Id),
-                new SqlParameter("@cityID", hat_city.CityID),
-                new SqlParameter("@city", hat_city.City),
-                new SqlParameter("@father", hat_city.Father)
-            );
-        }
-
-        public static void DeleteById(long id)
-        {
-            SqlHelper.ExecuteNonQuery(@"delete from hat_city where id = @id",
-                new SqlParameter("@id", id));
-        }
-
-        public static void Update(Hat_cityModel hat_city)
-        {
-            SqlHelper.ExecuteNonQuery(@"update hat_city set
-			id = @id,
-			cityID = @cityID,
-			city = @city,
-			father = @father
-			where id = @id",
-                new SqlParameter("@id", hat_city.Id),
-                new SqlParameter("@cityID", hat_city.CityID),
-                new SqlParameter("@city", hat_city.City),
-                new SqlParameter("@father", hat_city.Father)
-            );
-        }
-
-        public static Hat_cityModel GetById(long id)
+        public static Hat_cityModel GetById(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_city where id = @id",
                 new SqlParameter("@id", id));
@@ -58,7 +26,7 @@ namespace Doctor.DAL
             }
         }
 
-        public static Hat_cityModel[] GetAllByProvinceId(long id)
+        public static Hat_cityModel[] GetAllByProvinceId(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_city where hat_city.father = (select provinceID from hat_province where hat_province.id = @id)", 
                 new SqlParameter("@id", id));
@@ -78,6 +46,14 @@ namespace Doctor.DAL
             hat_city.City = (System.String)row["city"];
             hat_city.Father = (System.String)row["father"];
             return hat_city;
+        }
+
+        public static Hat_provinceModel GetFatherProvince(Hat_cityModel city)
+        {
+            int id = (int)SqlHelper.ExecuteScalar("select id from hat_province where provinceID = @provinceId",
+                new SqlParameter("@provinceID", city.Father));
+
+            return Hat_provinceDAL.GetById(id);
         }
     }
 }

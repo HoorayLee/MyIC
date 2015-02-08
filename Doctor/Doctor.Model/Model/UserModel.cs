@@ -9,7 +9,7 @@ namespace Doctor.Model
     {
         public System.Int64 User_id { get; set; }
         public System.String Password { get; set; }
-        public System.String Region { get; set; }
+        public System.String Name { get; set; }
         public System.DateTime? Date_of_birth { get; set; }
     }
 

@@ -6,39 +6,7 @@ namespace Doctor.DAL
 {
     public class Hat_areaDAL
     {
-        public static void Insert(Hat_areaModel hat_area)
-        {
-            SqlHelper.ExecuteNonQuery(@"insert into Hat_areaModel(@id, @areaID, @area, father)
-			values(id, areaID, area, father)",
-                new SqlParameter("@id", hat_area.Id),
-                new SqlParameter("@areaID", hat_area.AreaID),
-                new SqlParameter("@area", hat_area.Area),
-                new SqlParameter("@father", hat_area.Father)
-            );
-        }
-
-        public static void DeleteById(long id)
-        {
-            SqlHelper.ExecuteNonQuery(@"delete from hat_area where id = @id",
-                new SqlParameter("@id", id));
-        }
-
-        public static void Update(Hat_areaModel hat_area)
-        {
-            SqlHelper.ExecuteNonQuery(@"update hat_area set
-			id = @id,
-			areaID = @areaID,
-			area = @area,
-			father = @father
-			where id = @id",
-                new SqlParameter("@id", hat_area.Id),
-                new SqlParameter("@areaID", hat_area.AreaID),
-                new SqlParameter("@area", hat_area.Area),
-                new SqlParameter("@father", hat_area.Father)
-            );
-        }
-        
-        public static Hat_areaModel GetById(long id)
+        public static Hat_areaModel GetById(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_area where id = @id",
                 new SqlParameter("@id", id));
@@ -57,7 +25,7 @@ namespace Doctor.DAL
             }
         }
         
-        public static Hat_areaModel[] GetAllByCityId(long id)
+        public static Hat_areaModel[] GetAllByCityId(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_area where hat_area.father = (select cityID from hat_city where hat_city.id = @id)",
                 new SqlParameter("@id", id));
@@ -77,6 +45,34 @@ namespace Doctor.DAL
             hat_area.Area = (System.String)row["area"];
             hat_area.Father = (System.String)row["father"];
             return hat_area;
+        }
+
+        /// <summary>
+        /// 通过地区取得所在城市
+        /// </summary>
+        /// <param name="area"></param>
+        /// <returns></returns>
+        public static Hat_cityModel GetFatherCity(Hat_areaModel area)
+        {
+            int id = (int)SqlHelper.ExecuteScalar("select id from hat_city where cityID = @cityID",
+                new SqlParameter("@cityID", area.Father));
+
+            return Hat_cityDAL.GetById(id);
+        }
+
+        /// <summary>
+        /// 通过地区Area获取包括上级市，省的字符串
+        /// e.g: 双流县的Hat_areaModel -> "四川省_成都市_双流县"
+        /// </summary>
+        /// <param name="area"></param>
+        /// <returns></returns>
+        public static string GetFullLocationString(Hat_areaModel area)
+        {
+            Hat_cityModel fatherCity = Hat_areaDAL.GetFatherCity(area);
+            Hat_provinceModel fatherProvince = Hat_cityDAL.GetFatherProvince(fatherCity);
+
+            string result = fatherProvince.Province + "_" + fatherCity.City + "_" + area.Area;
+            return result;
         }
     }
 

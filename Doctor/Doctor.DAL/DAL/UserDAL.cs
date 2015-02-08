@@ -11,41 +11,63 @@ namespace Doctor.DAL
 {
     public class UserDAL
     {
-        public static void Insert(UserModel user)
+        public static bool Insert(UserModel user)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into UserModel(@user_id, @password, @region, date_of_birth)
-			values(user_id, password, region, date_of_birth)",
-                new SqlParameter("@user_id", user.User_id),
-                new SqlParameter("@password", user.Password),
-                new SqlParameter("@region", user.Region),
-                new SqlParameter("@date_of_birth", user.Date_of_birth)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into User(password, date_of_birth, name)
+				values(@password, @date_of_birth, @name)",
+                    new SqlParameter("@password", user.Password),
+                    new SqlParameter("@date_of_birth", SqlHelper.ToDBValue(user.Date_of_birth)),
+                    new SqlParameter("@name", user.Name)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from User where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from User where user_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(UserModel user)
+        public static bool Update(UserModel user)
         {
-            SqlHelper.ExecuteNonQuery(@"update User set
-			user_id = @user_id,
-			password = @password,
-			region = @region,
-			date_of_birth = @date_of_birth
-			where id = @id",
-                new SqlParameter("@user_id", user.User_id),
-                new SqlParameter("@password", user.Password),
-                new SqlParameter("@region", user.Region),
-                new SqlParameter("@date_of_birth", user.Date_of_birth)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update User set
+				password = @password,
+				date_of_birth = @date_of_birth,
+				name = @name
+				where user_id = @user_id",
+                    new SqlParameter("@password", user.Password),
+                    new SqlParameter("@date_of_birth", SqlHelper.ToDBValue(user.Date_of_birth)),
+                    new SqlParameter("@name", user.Name),
+                    new SqlParameter("@user_id", user.User_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static UserModel GetById(long id)
+        public static UserModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from User where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from User where user_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -78,12 +100,9 @@ namespace Doctor.DAL
             UserModel user = new UserModel();
             user.User_id = (System.Int64)row["user_id"];
             user.Password = (System.String)row["password"];
-            user.Region = (System.String)row["region"];
-            user.Date_of_birth = (System.DateTime)row["date_of_birth"];
+            user.Date_of_birth = (System.DateTime?)SqlHelper.FromDBValue(row["date_of_birth"]);
+            user.Name = (System.String)row["name"];
             return user;
         }
-
-        
     }
-
 }

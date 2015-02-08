@@ -9,3 +9,5 @@ C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doct
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.dll
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.DAL.pdb
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.Model.pdb
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.pdb
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.xml

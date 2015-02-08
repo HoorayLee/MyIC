@@ -10,44 +10,66 @@ namespace Doctor.DAL
 {
     public class GoodsDAL
     {
-        public static void Insert(GoodsModel goods)
+        public static bool Insert(GoodsModel goods)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into GoodsModel(@goods_id, @name, @introduction, @price, type)
-			values(goods_id, name, introduction, price, type)",
-                new SqlParameter("@goods_id", goods.Goods_id),
-                new SqlParameter("@name", goods.Name),
-                new SqlParameter("@introduction", goods.Introduction),
-                new SqlParameter("@price", goods.Price),
-                new SqlParameter("@type", goods.Type)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Goods(name, introduction, price, type)
+				values(@name, @introduction, @price, @type)",
+                    new SqlParameter("@name", goods.Name),
+                    new SqlParameter("@introduction", SqlHelper.ToDBValue(goods.Introduction)),
+                    new SqlParameter("@price", goods.Price),
+                    new SqlParameter("@type", goods.Type)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Goods where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Goods where goods_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(GoodsModel goods)
+        public static bool Update(GoodsModel goods)
         {
-            SqlHelper.ExecuteNonQuery(@"update Goods set
-			goods_id = @goods_id,
-			name = @name,
-			introduction = @introduction,
-			price = @price,
-			type = @type
-			where id = @id",
-                new SqlParameter("@goods_id", goods.Goods_id),
-                new SqlParameter("@name", goods.Name),
-                new SqlParameter("@introduction", goods.Introduction),
-                new SqlParameter("@price", goods.Price),
-                new SqlParameter("@type", goods.Type)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Goods set
+				name = @name,
+				introduction = @introduction,
+				price = @price,
+				type = @type
+				where goods_id = @goods_id",
+                    new SqlParameter("@name", goods.Name),
+                    new SqlParameter("@introduction", SqlHelper.ToDBValue(goods.Introduction)),
+                    new SqlParameter("@price", goods.Price),
+                    new SqlParameter("@type", goods.Type),
+                    new SqlParameter("@goods_id", goods.Goods_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static GoodsModel GetById(long id)
+        public static GoodsModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Goods where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Goods where goods_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -80,7 +102,7 @@ namespace Doctor.DAL
             GoodsModel goods = new GoodsModel();
             goods.Goods_id = (System.Int64)row["goods_id"];
             goods.Name = (System.String)row["name"];
-            goods.Introduction = (System.String)row["introduction"];
+            goods.Introduction = (System.String)SqlHelper.FromDBValue(row["introduction"]);
             goods.Price = (System.Decimal)row["price"];
             goods.Type = (System.String)row["type"];
             return goods;

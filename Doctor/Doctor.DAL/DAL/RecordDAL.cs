@@ -10,41 +10,66 @@ namespace Doctor.DAL
 {
     public class RecordDAL
     {
-        public static void Insert(RecordModel record)
+        public static bool Insert(RecordModel record)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into RecordModel(@record_id, @user_id, @description, time)
-			values(record_id, user_id, description, time)",
-                new SqlParameter("@record_id", record.Record_id),
-                new SqlParameter("@user_id", record.User_id),
-                new SqlParameter("@description", record.Description),
-                new SqlParameter("@time", record.Time)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Record(user_id, description, time, hat_area_id)
+				values(@user_id, @description, @time, @hat_area_id)",
+                    new SqlParameter("@user_id", record.User_id),
+                    new SqlParameter("@description", record.Description),
+                    new SqlParameter("@time", record.Time),
+                    new SqlParameter("@hat_area_id", record.Hat_area_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Record where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Record where record_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(RecordModel record)
+        public static bool Update(RecordModel record)
         {
-            SqlHelper.ExecuteNonQuery(@"update Record set
-			record_id = @record_id,
-			user_id = @user_id,
-			description = @description,
-			time = @time
-			where id = @id",
-                new SqlParameter("@record_id", record.Record_id),
-                new SqlParameter("@user_id", record.User_id),
-                new SqlParameter("@description", record.Description),
-                new SqlParameter("@time", record.Time)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Record set
+				user_id = @user_id,
+				description = @description,
+				time = @time,
+				hat_area_id = @hat_area_id
+				where record_id = @record_id",
+                    new SqlParameter("@user_id", record.User_id),
+                    new SqlParameter("@description", record.Description),
+                    new SqlParameter("@time", record.Time),
+                    new SqlParameter("@hat_area_id", record.Hat_area_id),
+                    new SqlParameter("@record_id", record.Record_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static RecordModel GetById(long id)
+        public static RecordModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Record where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Record where record_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -79,6 +104,7 @@ namespace Doctor.DAL
             record.User_id = (System.Int64)row["user_id"];
             record.Description = (System.String)row["description"];
             record.Time = (System.DateTime)row["time"];
+            record.Hat_area_id = (System.Int32)row["hat_area_id"];
             return record;
         }
     }

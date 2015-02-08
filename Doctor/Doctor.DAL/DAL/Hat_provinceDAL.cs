@@ -7,36 +7,7 @@ namespace Doctor.DAL
 
     public class Hat_provinceDAL
     {
-        public static void Insert(Hat_provinceModel hat_province)
-        {
-            SqlHelper.ExecuteNonQuery(@"insert into Hat_provinceModel(@id, @provinceID, province)
-			values(id, provinceID, province)",
-                new SqlParameter("@id", hat_province.Id),
-                new SqlParameter("@provinceID", hat_province.ProvinceID),
-                new SqlParameter("@province", hat_province.Province)
-            );
-        }
-
-        public static void DeleteById(long id)
-        {
-            SqlHelper.ExecuteNonQuery(@"delete from hat_province where id = @id",
-                new SqlParameter("@id", id));
-        }
-
-        public static void Update(Hat_provinceModel hat_province)
-        {
-            SqlHelper.ExecuteNonQuery(@"update hat_province set
-			id = @id,
-			provinceID = @provinceID,
-			province = @province
-			where id = @id",
-                new SqlParameter("@id", hat_province.Id),
-                new SqlParameter("@provinceID", hat_province.ProvinceID),
-                new SqlParameter("@province", hat_province.Province)
-            );
-        }
-
-        public static Hat_provinceModel GetById(long id)
+        public static Hat_provinceModel GetById(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_province where id = @id",
                 new SqlParameter("@id", id));

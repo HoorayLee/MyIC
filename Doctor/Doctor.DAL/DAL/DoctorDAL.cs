@@ -14,16 +14,14 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"insert into Doctor(@doc_id, @hospital_id, @password, @name, @photoPath, @hospital, @licenseNo, @licensePath, ifAuth)
-			        values(doc_id, hospital_id, password, name, photoPath, hospital, licenseNo, licensePath, ifAuth)",
-                    new SqlParameter("@doc_id", doctor.Doc_id),
-                    new SqlParameter("@hospital_id", doctor.Hospital_id),
+                SqlHelper.ExecuteNonQuery(@"insert into Doctor(hospital_id, password, name, photoPath, licenseNo, licensePath, ifAuth)
+				values(@hospital_id, @password, @name, @photoPath, @licenseNo, @licensePath, @ifAuth)",
+                    new SqlParameter("@hospital_id", SqlHelper.ToDBValue(doctor.Hospital_id)),
                     new SqlParameter("@password", doctor.Password),
                     new SqlParameter("@name", doctor.Name),
-                    new SqlParameter("@photoPath", doctor.PhotoPath),
-                    new SqlParameter("@hospital", doctor.Hospital),
-                    new SqlParameter("@licenseNo", doctor.LicenseNo),
-                    new SqlParameter("@licensePath", doctor.LicensePath),
+                    new SqlParameter("@photoPath", SqlHelper.ToDBValue(doctor.PhotoPath)),
+                    new SqlParameter("@licenseNo", SqlHelper.ToDBValue(doctor.LicenseNo)),
+                    new SqlParameter("@licensePath", SqlHelper.ToDBValue(doctor.LicensePath)),
                     new SqlParameter("@ifAuth", doctor.IfAuth)
                 );
                 return true;
@@ -34,40 +32,53 @@ namespace Doctor.DAL
             }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Doctor where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Doctor where doc_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(DoctorModel doctor)
+        public static bool Update(DoctorModel doctor)
         {
-            SqlHelper.ExecuteNonQuery(@"update Doctor set
-			doc_id = @doc_id,
-			hospital_id = @hospital_id,
-			password = @password,
-			name = @name,
-			photoPath = @photoPath,
-			hospital = @hospital,
-			licenseNo = @licenseNo,
-			licensePath = @licensePath,
-			ifAuth = @ifAuth
-			where id = @id",
-                new SqlParameter("@doc_id", doctor.Doc_id),
-                new SqlParameter("@hospital_id", doctor.Hospital_id),
-                new SqlParameter("@password", doctor.Password),
-                new SqlParameter("@name", doctor.Name),
-                new SqlParameter("@photoPath", doctor.PhotoPath),
-                new SqlParameter("@hospital", doctor.Hospital),
-                new SqlParameter("@licenseNo", doctor.LicenseNo),
-                new SqlParameter("@licensePath", doctor.LicensePath),
-                new SqlParameter("@ifAuth", doctor.IfAuth)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Doctor set
+				hospital_id = @hospital_id,
+				password = @password,
+				name = @name,
+				photoPath = @photoPath,
+				licenseNo = @licenseNo,
+				licensePath = @licensePath,
+				ifAuth = @ifAuth
+				where doc_id = @doc_id",
+                    new SqlParameter("@hospital_id", SqlHelper.ToDBValue(doctor.Hospital_id)),
+                    new SqlParameter("@password", doctor.Password),
+                    new SqlParameter("@name", doctor.Name),
+                    new SqlParameter("@photoPath", SqlHelper.ToDBValue(doctor.PhotoPath)),
+                    new SqlParameter("@licenseNo", SqlHelper.ToDBValue(doctor.LicenseNo)),
+                    new SqlParameter("@licensePath", SqlHelper.ToDBValue(doctor.LicensePath)),
+                    new SqlParameter("@ifAuth", doctor.IfAuth),
+                    new SqlParameter("@doc_id", doctor.Doc_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static DoctorModel GetById(long id)
+        public static DoctorModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Doctor where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Doctor where doc_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -103,7 +114,6 @@ namespace Doctor.DAL
             doctor.Password = (System.String)row["password"];
             doctor.Name = (System.String)row["name"];
             doctor.PhotoPath = (System.String)SqlHelper.FromDBValue(row["photoPath"]);
-            doctor.Hospital = (System.String)SqlHelper.FromDBValue(row["hospital"]);
             doctor.LicenseNo = (System.String)SqlHelper.FromDBValue(row["licenseNo"]);
             doctor.LicensePath = (System.String)SqlHelper.FromDBValue(row["licensePath"]);
             doctor.IfAuth = (System.Boolean)row["ifAuth"];

@@ -10,38 +10,60 @@ namespace Doctor.DAL
 {
     public class PhotoDAL
     {
-        public static void Insert(PhotoModel photo)
+        public static bool Insert(PhotoModel photo)
         {
-            SqlHelper.ExecuteNonQuery(@"insert into PhotoModel(@photo_id, @record_id, path)
-			values(photo_id, record_id, path)",
-                new SqlParameter("@photo_id", photo.Photo_id),
-                new SqlParameter("@record_id", photo.Record_id),
-                new SqlParameter("@path", photo.Path)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"insert into Photo(record_id, path)
+				values(@record_id, @path)",
+                    new SqlParameter("@record_id", photo.Record_id),
+                    new SqlParameter("@path", photo.Path)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void DeleteById(long id)
+        public static bool DeleteById(System.Int64 id)
         {
-            SqlHelper.ExecuteNonQuery(@"delete from Photo where id = @id",
-                new SqlParameter("@id", id));
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"delete from Photo where photo_id = @id",
+                    new SqlParameter("@id", id));
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static void Update(PhotoModel photo)
+        public static bool Update(PhotoModel photo)
         {
-            SqlHelper.ExecuteNonQuery(@"update Photo set
-			photo_id = @photo_id,
-			record_id = @record_id,
-			path = @path
-			where id = @id",
-                new SqlParameter("@photo_id", photo.Photo_id),
-                new SqlParameter("@record_id", photo.Record_id),
-                new SqlParameter("@path", photo.Path)
-            );
+            try
+            {
+                SqlHelper.ExecuteNonQuery(@"update Photo set
+				record_id = @record_id,
+				path = @path
+				where photo_id = @photo_id",
+                    new SqlParameter("@record_id", photo.Record_id),
+                    new SqlParameter("@path", photo.Path),
+                    new SqlParameter("@photo_id", photo.Photo_id)
+                );
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
         }
 
-        public static PhotoModel GetById(long id)
+        public static PhotoModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Photo where id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from Photo where photo_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -75,6 +97,18 @@ namespace Doctor.DAL
             photo.Photo_id = (System.Int64)row["photo_id"];
             photo.Record_id = (System.Int64)row["record_id"];
             photo.Path = (System.String)row["path"];
+            return photo;
+        }
+
+        public static PhotoModel[] GetAllByRecordId(long id)
+        {
+            DataTable table = SqlHelper.ExecuteDataTable("select * from Photo where record_id = @id",
+                new SqlParameter("@id", id));
+            PhotoModel[] photo = new PhotoModel[table.Rows.Count];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                photo[i] = ToModel(table.Rows[i]);
+            }
             return photo;
         }
     }
