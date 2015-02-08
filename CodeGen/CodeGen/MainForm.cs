@@ -17,7 +17,7 @@ namespace CodeGen
     public partial class MainForm : Form
     {
         private static readonly string connStr = ConfigurationManager.ConnectionStrings["Geek"].ConnectionString;
-        private static readonly string newLine = Environment.NewLine;
+
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -78,44 +78,71 @@ namespace CodeGen
             builder.Append("public class ").AppendLine(className);
             builder.AppendLine("{");
 
+
             DataTable table = SqlHelper.ExecuteDataTable("select top 0 * from [" + tableName + "]");
+            string primaryKey = GetPrimaryKey(table);
+            string primaryKeyType = table.PrimaryKey[0].DataType.ToString();
 
             //1.Insert
-            builder.AppendFormat("\tpublic static void Insert({0} {1})", modelClassName, objName).AppendLine();
+            builder.AppendFormat("\tpublic static bool Insert({0} {1})", modelClassName, objName).AppendLine();
             builder.AppendLine("\t{");
-            builder.Append("\t\tSqlHelper.ExecuteNonQuery(@\"insert into ").Append(modelClassName).
+            builder.AppendLine("\t\ttry");
+            builder.AppendLine("\t\t{");
+            builder.Append("\t\t\tSqlHelper.ExecuteNonQuery(@\"insert into ").Append(tableName).
                 AppendLine(GetColsString(table, false));
-            builder.Append("\t\t\tvalues").Append(GetColsString(table, true)).AppendLine("\",");
-            builder.Append(GetParamsString(table, objName));
-            builder.AppendLine("\t\t);");
+            builder.Append("\t\t\t\tvalues").Append(GetColsString(table, true)).AppendLine("\",");
+            builder.Append(GetParamsString(table, objName, false));
+            builder.AppendLine("\t\t\t);");
+            builder.AppendLine("\t\t\treturn true;");
+            builder.AppendLine("\t\t}");
+            builder.AppendLine("\t\tcatch(SqlException)");
+            builder.AppendLine("\t\t{");
+            builder.AppendLine("\t\t\treturn false;");
+            builder.AppendLine("\t\t}");;
             builder.AppendLine("\t}");
             builder.AppendLine();
 
             //2.DeleteById
-            builder.AppendLine("\tpublic static void DeleteById(long id)");
+            builder.AppendFormat("\tpublic static bool DeleteById({0} id)", primaryKeyType).AppendLine();
             builder.AppendLine("\t{");
-            builder.Append("\t\tSqlHelper.ExecuteNonQuery(@\"delete from ").Append(tableName).AppendLine(" where id = @id\",");
-            builder.AppendLine("\t\t\tnew SqlParameter(\"@id\", id));");
+            builder.AppendLine("\t\ttry");
+            builder.AppendLine("\t\t{");
+            builder.AppendFormat("\t\t\tSqlHelper.ExecuteNonQuery(@\"delete from {0} where {1} = @id\",", tableName, primaryKey).AppendLine();
+            builder.AppendLine("\t\t\t\tnew SqlParameter(\"@id\", id));");
+            builder.AppendLine("\t\t\treturn true;");
+            builder.AppendLine("\t\t}");
+            builder.AppendLine("\t\tcatch(SqlException)");
+            builder.AppendLine("\t\t{");
+            builder.AppendLine("\t\t\treturn false;");
+            builder.AppendLine("\t\t}"); ;
             builder.AppendLine("\t}");
             builder.AppendLine();
 
             //3.Update
-            builder.Append("\tpublic static void Update(").Append(modelClassName).Append(" ").Append(objName).
-                AppendLine(")");
+            builder.AppendFormat("\tpublic static bool Update({0} {1})", modelClassName, objName).AppendLine();
             builder.AppendLine("\t{");
-            builder.Append("\t\tSqlHelper.ExecuteNonQuery(@\"update ").Append(tableName).AppendLine(" set");
+            builder.AppendLine("\t\ttry");
+            builder.AppendLine("\t\t{");
+            builder.AppendFormat("\t\t\tSqlHelper.ExecuteNonQuery(@\"update {0} set", tableName).AppendLine();
             builder.Append(GetColsStringForSet(table));
-            builder.AppendLine("\t\t\twhere id = @id\",");
-            builder.Append(GetParamsString(table, objName));
-            builder.AppendLine("\t\t);");
+            builder.AppendFormat("\t\t\t\twhere {0} = @{0}\",", primaryKey).AppendLine();
+            builder.Append(GetParamsString(table, objName, true));
+            builder.AppendLine("\t\t\t);");
+            builder.AppendLine("\t\t\treturn true;");
+            builder.AppendLine("\t\t}");
+            builder.AppendLine("\t\tcatch(SqlException)");
+            builder.AppendLine("\t\t{");
+            builder.AppendLine("\t\t\treturn false;");
+            builder.AppendLine("\t\t}"); ;
             builder.AppendLine("\t}");
             builder.AppendLine();
 
             //4.GetById
-            builder.Append("\tpublic static ").Append(modelClassName).AppendLine(" GetById(long id)");
+            builder.AppendFormat("\tpublic static {0} GetById({1} id)", modelClassName, primaryKeyType).
+                AppendLine();
             builder.AppendLine("\t{");
             builder.Append("\t\tDataTable table = SqlHelper.ExecuteDataTable(@\"select * from ").Append(tableName).
-                AppendLine(" where id = @id\",");
+                AppendFormat(" where {0} = @id\",", primaryKey).AppendLine();
             builder.AppendLine("\t\t\tnew SqlParameter(\"@id\", id));");
             builder.AppendLine("\t\tif (table.Rows.Count <= 0)");
             builder.AppendLine("\t\t{");
@@ -155,8 +182,16 @@ namespace CodeGen
             builder.AppendFormat("\t\t{0} {1} = new {0}();", modelClassName, objName).AppendLine();
             foreach (DataColumn col in table.Columns)
             {
-                builder.AppendFormat("\t\t{0}.{1} = ({2})row[\"{3}\"];", objName, FirstLetterUpper(col.ColumnName), 
-                    col.DataType.ToString(), FirstLetterLower(col.ColumnName)).AppendLine();
+                if (!col.AllowDBNull)
+                {
+                    builder.AppendFormat("\t\t{0}.{1} = ({2})row[\"{3}\"];", objName, FirstLetterUpper(col.ColumnName), 
+                        GetColumnType(col), FirstLetterLower(col.ColumnName)).AppendLine();
+                }
+                else
+                {
+                    builder.AppendFormat("\t\t{0}.{1} = ({2})SqlHelper.FromDBValue(row[\"{3}\"]);",
+                        objName, FirstLetterUpper(col.ColumnName), GetColumnType(col), FirstLetterLower(col.ColumnName)).AppendLine();
+                }
             }
 
             builder.AppendFormat("\t\treturn {0};", objName).AppendLine();
@@ -210,11 +245,21 @@ namespace CodeGen
 
         private StringBuilder AddNameSpaceToCode(StringBuilder builder, string nameSpace)
         {
-            builder = InsertTabForEveryLine(builder);
-            builder.Insert(0, "{" + newLine);
-            builder.Insert(0, "namespace " + nameSpace + newLine);
+            builder = builder.InsertTabForEveryLine();
+            builder.Insert(0, "{" + ClassEx.newLine);
+            builder.Insert(0, "namespace " + nameSpace + ClassEx.newLine);
             builder.AppendLine("}");
             return builder;
+        }
+
+        /// <summary>
+        /// 获取一个表的主键（字符串）（认定主键只有一列）
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        private string GetPrimaryKey(DataTable table)
+        {
+            return table.PrimaryKey[0].ColumnName;
         }
 
         private string GetColumnType(DataColumn col)
@@ -244,34 +289,41 @@ namespace CodeGen
             builder.Append("(");
             int i;
             DataColumn col;
+            DataColumn primaryKey = table.PrimaryKey[0];
             if (withAt)
             {
                 for (i = 0; i < table.Columns.Count - 1; i++)
                 {
                     col = table.Columns[i];
-                    if (!col.AutoIncrement)
+                    if (!col.Equals(primaryKey))
                     {
-                        builder.Append(table.Columns[i].ColumnName).Append(", "); 
+                        builder.Append("@").Append(table.Columns[i].ColumnName).Append(", "); 
                     }
-                }                
+                }
+                col = table.Columns[i];
+                if (!col.Equals(primaryKey))
+                {
+                    builder.Append("@").Append(table.Columns[i].ColumnName);
+                }
             }
             else
             {
                 for (i = 0; i < table.Columns.Count - 1; i++)
                 {
                     col = table.Columns[i];
-                    if (!col.AutoIncrement)
+                    if (!col.Equals(primaryKey))
                     {
-                        builder.Append("@").Append(table.Columns[i].ColumnName).Append(", ");
+                        builder.Append(table.Columns[i].ColumnName).Append(", ");
                     }
-                } 
+                }
+                col = table.Columns[i];
+                if (!col.Equals(primaryKey))
+                {
+                    builder.Append(table.Columns[i].ColumnName);
+                }
             }
 
-            col = table.Columns[i];
-            if (!col.AutoIncrement)
-            {
-                builder.Append(table.Columns[i].ColumnName);
-            }
+            
             builder.Append(")");
 
             return builder.ToString();
@@ -282,65 +334,62 @@ namespace CodeGen
             StringBuilder builder = new StringBuilder();
             int i;
             DataColumn col;
+            DataColumn primaryKey = table.PrimaryKey[0];
             string colName;
             for (i = 0; i < table.Columns.Count - 1; i++)
             {
                 col = table.Columns[i];
                 colName = col.ColumnName;
-                if (!col.AutoIncrement)
+                if (!col.Equals(primaryKey))
                 {
-                    builder.Append("\t\t\t").Append(colName).Append(" = @").Append(colName).AppendLine(",");
+                    builder.Append("\t\t\t\t").Append(colName).Append(" = @").Append(colName).AppendLine(",");
                 }
             } 
             col = table.Columns[i];
             colName = col.ColumnName;
-            if (!col.AutoIncrement)
+            if (!col.Equals(primaryKey))
             {
-                builder.Append("\t\t\t").Append(colName).Append(" = @").Append(colName).AppendLine();
+                builder.Append("\t\t\t\t").Append(colName).Append(" = @").Append(colName).AppendLine();
             }
 
             return builder.ToString();
         }
 
-        private string GetParamsString(DataTable table, string objName)
+        private string GetParamsString(DataTable table, string objName, bool primaryKeyAtEnd)
         {
             StringBuilder builder = new StringBuilder();
             int i;
             DataColumn col;
-            for (i = 0; i < table.Columns.Count - 1; i++)
+            DataColumn primaryKey = table.PrimaryKey[0];
+            for (i = 0; i < table.Columns.Count; i++)
             {
                 col = table.Columns[i];
-                if (!col.AutoIncrement)
+                if (!col.Equals(primaryKey))
                 {
-                    builder.Append("\t\t\tnew SqlParameter(\"@").Append(col.ColumnName).Append("\", ").
-                        Append(objName).Append(".").Append(FirstLetterUpper(col.ColumnName)).AppendLine("),");
+                    if (!col.AllowDBNull)
+                    {
+                        builder.AppendFormat("\t\t\t\tnew SqlParameter(\"@{0}\", {1}.{2}),",
+                        col.ColumnName, objName, FirstLetterUpper(col.ColumnName)).AppendLine();
+                    }
+                    else
+                    {
+                        builder.AppendFormat("\t\t\t\tnew SqlParameter(\"@{0}\", SqlHelper.ToDBValue({1}.{2})),",
+                        col.ColumnName, objName, FirstLetterUpper(col.ColumnName)).AppendLine();
+                    }
                 }
             }
-            col = table.Columns[i];
-            if (!col.AutoIncrement)
+
+            if (primaryKeyAtEnd)
             {
-                builder.Append("\t\t\tnew SqlParameter(\"@").Append(col.ColumnName).Append("\", ").
-                    Append(objName).Append(".").Append(FirstLetterUpper(col.ColumnName)).AppendLine(")");
+                builder.AppendFormat("\t\t\t\tnew SqlParameter(\"@{0}\", {1}.{2})",
+                    primaryKey.ColumnName, objName, FirstLetterUpper(primaryKey.ColumnName)).AppendLine();
+            }
+            else
+            {
+                builder = builder.RemoveCRLFAtEnd().Remove(builder.Length - 1, 1).AppendLine();
             }
 
             return builder.ToString();
-        }
-
-
-        /// <summary>
-        /// 在每行之前加上\t，即向右缩进
-        /// </summary>
-        /// <param name="builder"></param>
-        private StringBuilder InsertTabForEveryLine(StringBuilder builder)
-        {
-            //当前环境中的换行是\n还是\r\n
-            builder.Replace(newLine, newLine + "\t");
-            builder.Insert(0, "\t");
-            
-            //因为是回车结尾：删除增加的\t
-            builder.Remove(builder.Length - newLine.Length, newLine.Length);
-
-            return builder;
         }
 
         /// <summary>
