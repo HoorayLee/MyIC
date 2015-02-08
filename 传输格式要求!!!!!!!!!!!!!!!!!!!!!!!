@@ -31,3 +31,18 @@ url: SelfCheckHandler.ashx:
 url: DiagnosisHandler.ashx
 发送：JsonConvert.SerializeObject()序列化的DiagnosisModel对象
 返回：json {"state":"success"/"failed"}
+
+6.列出一个地区的所有医院
+省市联动选择到区时列出该范围的所有医院
+url: HospitalListHandler.ashx
+发送：地区hat_area的主键id(int)
+返回：例如
+{
+  "count": 1,    //该地区的医院个数
+  "content": [
+    {
+      "hospital_id": 4,   //医院的主键
+      "name": "华西口腔医院"
+    }
+  ]
+}
