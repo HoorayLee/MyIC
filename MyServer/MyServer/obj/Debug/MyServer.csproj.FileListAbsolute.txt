@@ -1,0 +1,30 @@
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.exe.config
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.exe
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.pdb
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MySever.exe
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MySever.pdb
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MyServer.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Desktop\MyServer\MyServer\bin\Debug\MyServer.exe.config
+C:\Users\Tony\Desktop\MyServer\MyServer\bin\Debug\MyServer.exe
+C:\Users\Tony\Desktop\MyServer\MyServer\bin\Debug\MyServer.pdb
+C:\Users\Tony\Desktop\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Desktop\MyServer\MyServer\obj\Debug\MyServer.exe
+C:\Users\Tony\Desktop\MyServer\MyServer\obj\Debug\MyServer.pdb
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\MyServer.exe.config
+F:\Imagine Cup\MyServer\MyServer\obj\Debug\MyServer.exe
+F:\Imagine Cup\MyServer\MyServer\obj\Debug\MyServer.pdb
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\MyServer.exe
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\MyServer.pdb
+F:\Imagine Cup\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.dll
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.xml
+F:\Imagine Cup\MyServer\MyServer\bin\Debug\Newtonsoft.Json.pdb
+D:\MyServer\MyServer\bin\Debug\MyServer.exe.config
+D:\MyServer\MyServer\obj\Debug\MyServer.exe
+D:\MyServer\MyServer\obj\Debug\MyServer.pdb
+D:\MyServer\MyServer\bin\Debug\MyServer.exe
+D:\MyServer\MyServer\bin\Debug\MyServer.pdb
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.dll
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.pdb
+D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.xml
+D:\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache

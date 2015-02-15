@@ -1,0 +1,12 @@
+c:\users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\bin\Debug\MySever.exe.config
+C:\Users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\obj\Debug\MySever.csprojResolveAssemblyReference.cache
+C:\Users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\bin\Debug\MySever.exe
+C:\Users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\bin\Debug\MySever.pdb
+C:\Users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\obj\Debug\MySever.exe
+C:\Users\leehorray\documents\visual studio 2013\Projects\MySever\MySever\obj\Debug\MySever.pdb
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.exe.config
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MySever.exe
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MySever.pdb
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.exe
+C:\Users\Tony\Desktop\MyServer\MySever\bin\Debug\MySever.pdb
+C:\Users\Tony\Desktop\MyServer\MySever\obj\Debug\MySever.csprojResolveAssemblyReference.cache

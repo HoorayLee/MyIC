@@ -1,0 +1,13 @@
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\DoctorServer.dll.config
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\DoctorServer.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\DoctorServer.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\obj\Debug\DoctorServer.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\obj\Debug\DoctorServer.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\obj\Debug\DoctorServer.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.DAL.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.Model.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.DAL.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\DoctorServer\bin\Doctor.Model.pdb
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.pdb
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\DoctorServer\bin\Newtonsoft.Json.xml

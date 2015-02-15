@@ -1,0 +1,48 @@
+1.
+url：PicUploadHandler.ashx: 
+发送：使用HttpHelper中的UploadFile发送
+接收：UploadFile的返回值为该图片文件的新文件名，此文件名作为注册时上传图片的文件路径
+
+2.注册
+url：RegisterHandler.ashx:
+点击注册时，先用HttpHelper的UploadFile把图片（照片，执照（如果有的话））上传到PicUploadHandler.ashx
+记录返回的文件名并做为注册时的参数，new DoctorModel把输入的东西填好，使用JsonConvert.DeserializeObject()把
+DoctorModel实例序列化发送到RegisterHandler.ashx
+（即先把该传的图片上传到服务器，再把注册信息发送到服务器）
+
+3.图片下载（个人信息浏览）
+url: PicDownloadHandler.ashx:
+发送：借助HttpHelper中的DownloadFile，文件路径（UserModel里面有）
+接收：存到本地缓存即可（最好保存在系统的roaming文件夹内，就像QQ roaming文件夹分QQ号保存缓存文件一样）
+
+4.自检记录查询
+url: SelfCheckHandler.ashx:
+发送有两种选择
+(1)
+发送：ListAll(取的所有本地区的自检结果（现在还做不到本地区，先返回所有）)
+返回：{"count": 11, "content": [{},{},{}...]} "content"后面是一个JArray数组，其中每一项需要JsonConvert.DeserializeObject反序列化为RecordModel
+(2)
+发送：long型的编号（第n条数据对应的图片地址）
+返回：{"count": 2（与该记录相关的图片数量）, 仍然是一个JArray数组{[{},{},{}...(与上面类似，每个{}是一个PhotoModel的json字符串
+需要反序列化成PhotoModel)} }
+
+5.医生诊断添加
+医生端要根据医生的信息判断医生是否通过认证，如没有则不能添加诊断（输入框禁用）
+url: DiagnosisHandler.ashx
+发送：JsonConvert.SerializeObject()序列化的DiagnosisModel对象
+返回：json {"state":"success"/"failed"}
+
+6.列出一个地区的所有医院
+省市联动选择到区时列出该范围的所有医院
+url: HospitalListHandler.ashx
+发送：地区hat_area的主键id(int)
+返回：例如
+{
+  "count": 1,    //该地区的医院个数
+  "content": [
+    {
+      "hospital_id": 4,   //医院的主键
+      "name": "华西口腔医院"
+    }
+  ]
+}

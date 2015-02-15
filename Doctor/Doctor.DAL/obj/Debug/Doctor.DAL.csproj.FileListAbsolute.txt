@@ -1,0 +1,11 @@
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Doctor.Model.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Doctor.Model.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.dll
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.pdb
+C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.dll.config
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Tony\documents\visual studio 2013\Projects\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.xml

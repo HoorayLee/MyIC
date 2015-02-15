@@ -1,0 +1,6 @@
+F:\Imagine Cup\MyServer\Test\bin\Debug\Test.exe.config
+F:\Imagine Cup\MyServer\Test\bin\Debug\Test.exe
+F:\Imagine Cup\MyServer\Test\bin\Debug\Test.pdb
+F:\Imagine Cup\MyServer\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+F:\Imagine Cup\MyServer\Test\obj\Debug\Test.exe
+F:\Imagine Cup\MyServer\Test\obj\Debug\Test.pdb
