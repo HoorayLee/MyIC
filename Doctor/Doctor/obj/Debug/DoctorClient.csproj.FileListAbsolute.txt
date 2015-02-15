@@ -25,3 +25,106 @@ C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor\bin\Debug\Doct
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.DAL.pdb
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.Util.dll
 C:\Users\Tony\Documents\Visual Studio 2013\Projects\Doctor\Doctor\bin\Debug\Doctor.Util.pdb
+C:\Users\HES\Documents\GitHub\MyIC\MyIC\Doctor\Doctor\bin\Debug\Doctor.exe.config
+C:\Users\HES\Documents\GitHub\MyIC\MyIC\Doctor\Doctor\obj\Debug\Doctor.exe
+C:\Users\HES\Documents\GitHub\MyIC\MyIC\Doctor\Doctor\obj\Debug\Doctor.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.exe.config
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csprojResolveAssemblyReference.cache
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.MainForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.exe
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.dll
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.dll
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.dll
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.pdb
+C:\Users\JuSan\Desktop\doctors\Doctor\obj\Debug\Doctor.exe
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.exe.config
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.exe
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.pdb
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.exe
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.pdb
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.dll
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.dll
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.dll
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.pdb
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.pdb
+C:\Users\YaoPB\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.pdb
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csprojResolveAssemblyReference.cache
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.MainForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+C:\Users\YaoPB\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.exe.config
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.exe
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.pdb
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.exe
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.pdb
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.dll
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.dll
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.dll
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.DAL.pdb
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.Model.pdb
+C:\Users\PB\Desktop\doctors\Doctor\bin\Debug\Doctor.Util.pdb
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csprojResolveAssemblyReference.cache
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.MainForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+C:\Users\PB\Desktop\doctors\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.exe.config
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.exe
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.pdb
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.exe
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.pdb
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.DAL.dll
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.Model.dll
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.Util.dll
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Newtonsoft.Json.dll
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.DAL.pdb
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.Model.pdb
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\bin\Debug\Doctor.Util.pdb
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\DoctorClient.csprojResolveAssemblyReference.cache
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.MainForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache

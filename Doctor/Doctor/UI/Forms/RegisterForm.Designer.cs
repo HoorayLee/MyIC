@@ -51,12 +51,12 @@
             this.cb_city = new System.Windows.Forms.ComboBox();
             this.cb_hospital = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_photo = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_license = new System.Windows.Forms.Label();
             this.cb_area = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_realname = new System.Windows.Forms.TextBox();
-            this.lbl_photo = new System.Windows.Forms.Label();
-            this.lbl_license = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_license)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_photo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -273,6 +273,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
             // 
+            // lbl_photo
+            // 
+            this.lbl_photo.AutoSize = true;
+            this.lbl_photo.ForeColor = System.Drawing.Color.Red;
+            this.lbl_photo.Location = new System.Drawing.Point(181, 298);
+            this.lbl_photo.Name = "lbl_photo";
+            this.lbl_photo.Size = new System.Drawing.Size(65, 12);
+            this.lbl_photo.TabIndex = 5;
+            this.lbl_photo.Text = "未选择图片";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbl_license);
@@ -295,6 +305,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "认证信息";
             // 
+            // lbl_license
+            // 
+            this.lbl_license.AutoSize = true;
+            this.lbl_license.ForeColor = System.Drawing.Color.Red;
+            this.lbl_license.Location = new System.Drawing.Point(194, 366);
+            this.lbl_license.Name = "lbl_license";
+            this.lbl_license.Size = new System.Drawing.Size(65, 12);
+            this.lbl_license.TabIndex = 5;
+            this.lbl_license.Text = "未选择图片";
+            // 
             // cb_area
             // 
             this.cb_area.FormattingEnabled = true;
@@ -303,6 +323,7 @@
             this.cb_area.Size = new System.Drawing.Size(133, 20);
             this.cb_area.TabIndex = 11;
             this.cb_area.Text = "请选择县/区";
+            this.cb_area.SelectedIndexChanged += new System.EventHandler(this.cb_area_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -319,26 +340,6 @@
             this.tb_realname.Name = "tb_realname";
             this.tb_realname.Size = new System.Drawing.Size(132, 21);
             this.tb_realname.TabIndex = 6;
-            // 
-            // lbl_photo
-            // 
-            this.lbl_photo.AutoSize = true;
-            this.lbl_photo.ForeColor = System.Drawing.Color.Red;
-            this.lbl_photo.Location = new System.Drawing.Point(181, 298);
-            this.lbl_photo.Name = "lbl_photo";
-            this.lbl_photo.Size = new System.Drawing.Size(65, 12);
-            this.lbl_photo.TabIndex = 5;
-            this.lbl_photo.Text = "未选择图片";
-            // 
-            // lbl_license
-            // 
-            this.lbl_license.AutoSize = true;
-            this.lbl_license.ForeColor = System.Drawing.Color.Red;
-            this.lbl_license.Location = new System.Drawing.Point(194, 366);
-            this.lbl_license.Name = "lbl_license";
-            this.lbl_license.Size = new System.Drawing.Size(65, 12);
-            this.lbl_license.TabIndex = 5;
-            this.lbl_license.Text = "未选择图片";
             // 
             // RegisterForm
             // 

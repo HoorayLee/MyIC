@@ -28,88 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("今天", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("昨天", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("两天前", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2014-12-12 13:00:00",
-            "Tony",
-            "牙龈出血"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "2014-12-11 11:00:00",
-            "Sakura",
-            "？？？"}, -1);
-            this.lv_selfCheck = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.记录编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.提交日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.用户名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.描述 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lv_selfCheck
+            // dataGridView1
             // 
-            this.lv_selfCheck.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.lv_selfCheck.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lv_selfCheck.FullRowSelect = true;
-            listViewGroup1.Header = "今天";
-            listViewGroup1.Name = "listViewGroup1";
-            listViewGroup2.Header = "昨天";
-            listViewGroup2.Name = "listViewGroup2";
-            listViewGroup3.Header = "两天前";
-            listViewGroup3.Name = "listViewGroup3";
-            this.lv_selfCheck.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
-            listViewItem1.Group = listViewGroup1;
-            listViewItem2.Group = listViewGroup2;
-            this.lv_selfCheck.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.lv_selfCheck.Location = new System.Drawing.Point(0, 0);
-            this.lv_selfCheck.MultiSelect = false;
-            this.lv_selfCheck.Name = "lv_selfCheck";
-            this.lv_selfCheck.Size = new System.Drawing.Size(434, 297);
-            this.lv_selfCheck.TabIndex = 3;
-            this.lv_selfCheck.UseCompatibleStateImageBehavior = false;
-            this.lv_selfCheck.View = System.Windows.Forms.View.Details;
-            this.lv_selfCheck.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lv_selfCheck_MouseDoubleClick);
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.记录编号,
+            this.提交日期,
+            this.用户名,
+            this.描述});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(475, 297);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
-            // columnHeader1
+            // 记录编号
             // 
-            this.columnHeader1.Text = "提交时间";
-            this.columnHeader1.Width = 145;
+            this.记录编号.DataPropertyName = "Record_id";
+            this.记录编号.HeaderText = "记录编号";
+            this.记录编号.Name = "记录编号";
+            this.记录编号.Width = 80;
             // 
-            // columnHeader2
+            // 提交日期
             // 
-            this.columnHeader2.Text = "用户名";
-            this.columnHeader2.Width = 69;
+            this.提交日期.DataPropertyName = "Time";
+            this.提交日期.HeaderText = "提交日期";
+            this.提交日期.Name = "提交日期";
             // 
-            // columnHeader3
+            // 用户名
             // 
-            this.columnHeader3.Text = "描述";
-            this.columnHeader3.Width = 187;
+            this.用户名.DataPropertyName = "User_id";
+            this.用户名.HeaderText = "用户名";
+            this.用户名.Name = "用户名";
+            // 
+            // 描述
+            // 
+            this.描述.DataPropertyName = "Description";
+            this.描述.HeaderText = "描述";
+            this.描述.Name = "描述";
+            this.描述.Width = 150;
             // 
             // SelfCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 297);
-            this.Controls.Add(this.lv_selfCheck);
+            this.ClientSize = new System.Drawing.Size(475, 297);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "SelfCheckForm";
             this.Text = "自检查看";
+            this.Load += new System.EventHandler(this.SelfCheckForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView lv_selfCheck;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 记录编号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 提交日期;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 用户名;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 描述;
+
 
     }
 }
