@@ -1,5 +1,8 @@
 ﻿using Doctor.DAL;
 using Doctor.Model;
+using Doctor.Util;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +16,8 @@ namespace Doctor.Forms
 {
     public partial class RegisterForm : Form
     {
-        private string photoPath;
-        private string licensePath;
+        private  string photoPath;
+        private  string licensePath;
 
         public RegisterForm()
         {
@@ -94,12 +97,12 @@ namespace Doctor.Forms
                 return;
             }
 
-            if (cb_hospital.SelectedIndex < 0)
+          /*  if (cb_hospital.SelectedIndex < 0)
             {
                 MessageBox.Show("请选择医院");
                 cb_hospital.Focus();
                 return;
-            }
+            }*/
 
             //3.执业医师证编码
             string licenseNo = tb_license.Text.Trim();
@@ -116,12 +119,28 @@ namespace Doctor.Forms
                 return;
             }
 
+            string photos = HttpHelper.UploadFile("PicUploadHandler.ashx", photoPath);
+            string license = HttpHelper.UploadFile("PicUploadHandler.ashx", licensePath);
+
             DoctorModel model = new DoctorModel();
             model.Name = username;
-            model.Password = password;
-        }
+            model.Password = MD5.GetMD5(tb_passwordAgain.Text);
+            model.PhotoPath = photos;
+            model.LicensePath = license;
+            model.Hospital = cb_hospital.SelectedText;
+            model.LicenseNo = tb_license.Text;
+            model.Name = tb_username.Text;
 
-        
+            string result = HttpHelper.ConnectionForResult("RegisterHandler.ashx", JsonConvert.SerializeObject(model));
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("注册失败，请重新尝试！");
+            }
+            else
+            {
+                MessageBox.Show("注册成功！");
+            }
+        }
 
         /// <summary>
         /// 点击事件：取消
@@ -143,7 +162,7 @@ namespace Doctor.Forms
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 photoPath = openFileDialog.FileName;
-
+                
                 picBox_photo.Image = Image.FromFile(photoPath);
                 lbl_photo.Text = photoPath;
                 lbl_photo.ForeColor = Color.Black;
@@ -199,5 +218,56 @@ namespace Doctor.Forms
             cb_area.DataSource = areas;
             cb_area.DisplayMember = "area";
         }
+        class hospital 
+        {
+            private int hospital_id;
+
+            public int Hospital_id
+            {
+                get { return hospital_id; }
+                set { hospital_id = value; }
+            }
+            private string name;
+
+            public string Name
+            {
+                get { return name; }
+                set { name = value; }
+            }
+        }
+
+        private void cb_area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cb_area.Text))
+            {
+                string area_id = cb_area.Text.ToString();
+                string hospitallist = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", 2262 + "");
+                if (!string.IsNullOrEmpty(hospitallist))
+                {
+                    JObject jObjResult = JObject.Parse(hospitallist);
+                    int count = (int)jObjResult.Property("count");
+                    if (count != 0)
+                    {
+                        JArray jlist = JArray.Parse(jObjResult["content"].ToString());
+                        List<hospital> list = new List<hospital>();
+                        for (int i = 0; i < jlist.Count; ++i)
+                        {
+                            hospital h1 = new hospital();
+                            h1.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
+                            h1.Name = jlist[i]["name"].ToString();
+                            list.Add(h1);
+                        }
+                        if (list.Count > 0)
+                        {
+                            cb_hospital.DataSource = list;
+                            cb_hospital.DisplayMember = "name";
+                            cb_hospital.ValueMember = "hospital_id";
+                        }
+
+                    }
+                }
+            }
+        }
+     
     }
 }

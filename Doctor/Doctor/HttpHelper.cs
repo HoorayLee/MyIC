@@ -106,7 +106,7 @@ namespace Doctor
             try
             {
                 //下载图片
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://121.42.136.178:19710/" + url);
                 byte[] fileNameBytes = Encoding.UTF8.GetBytes(fileName);
                 request.Method = "POST";
                 request.GetRequestStream().Write(fileNameBytes, 0, fileNameBytes.Length);

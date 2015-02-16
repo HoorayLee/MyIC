@@ -28,3 +28,12 @@ D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.dll
 D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.pdb
 D:\MyClient\MyClient\bin\Debug\Newtonsoft.Json.xml
 D:\MyClient\MyClient\obj\Debug\MyClient.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Myclient.exe.config
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\obj\Debug\Myclient.exe
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\obj\Debug\Myclient.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Myclient.exe
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Myclient.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Tony\Documents\GitHub\MyIC\MyClient\MyClient\obj\Debug\MyClient.csprojResolveAssemblyReference.cache
