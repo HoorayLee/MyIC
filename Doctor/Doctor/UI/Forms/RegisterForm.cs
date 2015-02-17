@@ -16,12 +16,25 @@ namespace Doctor.Forms
 {
     public partial class RegisterForm : Form
     {
-        private  string photoPath;
-        private  string licensePath;
+        private string photoPath;
+        private string licensePath;
+
 
         public RegisterForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>     
+        /// 窗体载入事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            Hat_provinceModel[] provinces = Hat_provinceDAL.GetAll();
+            cb_province.DataSource = provinces;
+            cb_province.DisplayMember = "province";
         }
 
         /// <summary>
@@ -65,6 +78,13 @@ namespace Doctor.Forms
                 return;
             }
             
+            //4.个人照片
+            if (string.IsNullOrEmpty(photoPath))
+            {
+                MessageBox.Show("请选择个人照片");
+                return;
+            }
+            
             //认证信息
             //1.真实姓名
             string realName = tb_realname.Text.Trim();
@@ -97,12 +117,12 @@ namespace Doctor.Forms
                 return;
             }
 
-          /*  if (cb_hospital.SelectedIndex < 0)
+            if (cb_hospital.SelectedIndex < 0)
             {
                 MessageBox.Show("请选择医院");
                 cb_hospital.Focus();
                 return;
-            }*/
+            }
 
             //3.执业医师证编码
             string licenseNo = tb_license.Text.Trim();
@@ -119,17 +139,24 @@ namespace Doctor.Forms
                 return;
             }
 
-            string photos = HttpHelper.UploadFile("PicUploadHandler.ashx", photoPath);
-            string license = HttpHelper.UploadFile("PicUploadHandler.ashx", licensePath);
 
             DoctorModel model = new DoctorModel();
+
+            //必须信息
             model.Name = username;
             model.Password = MD5.GetMD5(tb_passwordAgain.Text);
-            model.PhotoPath = photos;
-            model.LicensePath = license;
-            model.Hospital = cb_hospital.SelectedText;
+
+            //非必须信息（认证信息）
+            string newPhotoPath = HttpHelper.UploadFile("PicUploadHandler.ashx", photoPath);
+            string newLicensePath = HttpHelper.UploadFile("PicUploadHandler.ashx", licensePath);
+            model.PhotoPath = newPhotoPath;
+            model.LicensePath = newLicensePath;
+
+            model.RealName = tb_realname.Text.Trim();
             model.LicenseNo = tb_license.Text;
-            model.Name = tb_username.Text;
+
+            Hospital selectedHospital = cb_hospital.SelectedItem as Hospital;
+            model.Hospital_id = selectedHospital.Hospital_id;
 
             string result = HttpHelper.ConnectionForResult("RegisterHandler.ashx", JsonConvert.SerializeObject(model));
             if (string.IsNullOrEmpty(result))
@@ -139,6 +166,7 @@ namespace Doctor.Forms
             else
             {
                 MessageBox.Show("注册成功！");
+                this.Close();
             }
         }
 
@@ -186,12 +214,6 @@ namespace Doctor.Forms
             }
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-            Hat_provinceModel[] provinces = Hat_provinceDAL.GetAll();
-            cb_province.DataSource = provinces;
-            cb_province.DisplayMember = "province";
-        }
 
         /// <summary>
         /// 选择省
@@ -218,53 +240,47 @@ namespace Doctor.Forms
             cb_area.DataSource = areas;
             cb_area.DisplayMember = "area";
         }
-        class hospital 
+
+        private class Hospital 
         {
-            private int hospital_id;
-
-            public int Hospital_id
-            {
-                get { return hospital_id; }
-                set { hospital_id = value; }
-            }
-            private string name;
-
-            public string Name
-            {
-                get { return name; }
-                set { name = value; }
-            }
+            public int Hospital_id { get; set; }
+            public string Name { get; set; }
         }
 
         private void cb_area_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(cb_area.Text))
             {
-                string area_id = cb_area.Text.ToString();
-                string hospitallist = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", 2262 + "");
-                if (!string.IsNullOrEmpty(hospitallist))
+                Hat_areaModel area = cb_area.SelectedItem as Hat_areaModel;
+                int area_id = area.Id;
+                //string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", 2262 + "");
+                
+                //清除原来的医院列表
+                string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", area_id.ToString());
+                if (!string.IsNullOrEmpty(hospitalList))
                 {
-                    JObject jObjResult = JObject.Parse(hospitallist);
+                    JObject jObjResult = JObject.Parse(hospitalList);
                     int count = (int)jObjResult.Property("count");
-                    if (count != 0)
+                    List<Hospital> hospitals = new List<Hospital>();
+                    if (count > 0)
                     {
                         JArray jlist = JArray.Parse(jObjResult["content"].ToString());
-                        List<hospital> list = new List<hospital>();
                         for (int i = 0; i < jlist.Count; ++i)
                         {
-                            hospital h1 = new hospital();
-                            h1.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
-                            h1.Name = jlist[i]["name"].ToString();
-                            list.Add(h1);
+                            Hospital hospital = new Hospital();
+                            hospital.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
+                            hospital.Name = jlist[i]["name"].ToString();
+                            hospitals.Add(hospital);
                         }
-                        if (list.Count > 0)
-                        {
-                            cb_hospital.DataSource = list;
-                            cb_hospital.DisplayMember = "name";
-                            cb_hospital.ValueMember = "hospital_id";
-                        }
-
                     }
+                    else
+                    {
+                        cb_hospital.Text = "";
+                    }
+
+                    cb_hospital.DataSource = hospitals;
+                    cb_hospital.DisplayMember = "name";
+                    cb_hospital.ValueMember = "hospital_id";
                 }
             }
         }

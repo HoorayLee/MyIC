@@ -69,6 +69,8 @@
             this.Controls.Add(this.btn_send);
             this.Controls.Add(this.tb_input);
             this.Controls.Add(this.tb_history);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "InstantMessageForm";
             this.Text = "对方账户名称填此";
             this.ResumeLayout(false);

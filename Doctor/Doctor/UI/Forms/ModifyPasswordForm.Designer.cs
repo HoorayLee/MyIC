@@ -69,6 +69,7 @@
             // 
             this.tb_oldPassword.Location = new System.Drawing.Point(100, 10);
             this.tb_oldPassword.Name = "tb_oldPassword";
+            this.tb_oldPassword.PasswordChar = '*';
             this.tb_oldPassword.Size = new System.Drawing.Size(112, 21);
             this.tb_oldPassword.TabIndex = 1;
             // 
@@ -76,6 +77,7 @@
             // 
             this.tb_newPassword.Location = new System.Drawing.Point(100, 37);
             this.tb_newPassword.Name = "tb_newPassword";
+            this.tb_newPassword.PasswordChar = '*';
             this.tb_newPassword.Size = new System.Drawing.Size(112, 21);
             this.tb_newPassword.TabIndex = 2;
             // 
@@ -83,6 +85,7 @@
             // 
             this.tb_newPasswordAgain.Location = new System.Drawing.Point(100, 64);
             this.tb_newPasswordAgain.Name = "tb_newPasswordAgain";
+            this.tb_newPasswordAgain.PasswordChar = '*';
             this.tb_newPasswordAgain.Size = new System.Drawing.Size(112, 21);
             this.tb_newPasswordAgain.TabIndex = 3;
             // 
@@ -91,7 +94,7 @@
             this.btn_confirm.Location = new System.Drawing.Point(42, 100);
             this.btn_confirm.Name = "btn_confirm";
             this.btn_confirm.Size = new System.Drawing.Size(75, 23);
-            this.btn_confirm.TabIndex = 2;
+            this.btn_confirm.TabIndex = 4;
             this.btn_confirm.Text = "确认";
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
@@ -101,7 +104,7 @@
             this.btn_cancel.Location = new System.Drawing.Point(123, 100);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 2;
+            this.btn_cancel.TabIndex = 5;
             this.btn_cancel.Text = "取消";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -119,6 +122,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ModifyPasswordForm";
             this.Text = "修改密码";
             this.ResumeLayout(false);

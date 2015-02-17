@@ -73,6 +73,16 @@ namespace Doctor.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 个人信息_灰_ {
+            get {
+                object obj = ResourceManager.GetObject("个人信息_灰_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 关于 {
             get {
                 object obj = ResourceManager.GetObject("关于", resourceCulture);
@@ -96,6 +106,16 @@ namespace Doctor.Properties {
         internal static System.Drawing.Bitmap 查看自检 {
             get {
                 object obj = ResourceManager.GetObject("查看自检", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 查看自检_灰_ {
+            get {
+                object obj = ResourceManager.GetObject("查看自检_灰_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +153,16 @@ namespace Doctor.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 注销_灰_ {
+            get {
+                object obj = ResourceManager.GetObject("注销_灰_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 登录 {
             get {
                 object obj = ResourceManager.GetObject("登录", resourceCulture);
@@ -156,6 +186,16 @@ namespace Doctor.Properties {
         internal static System.Drawing.Bitmap 联系人 {
             get {
                 object obj = ResourceManager.GetObject("联系人", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 联系人_灰_ {
+            get {
+                object obj = ResourceManager.GetObject("联系人_灰_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

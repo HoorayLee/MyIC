@@ -81,7 +81,6 @@ namespace Doctor.Forms
 
                     //保存到全局数据
                     LoginStatus.UserInfo = doctorModel;
-                    MessageBox.Show("登录成功");
                     this.Close();
                     break;
                 case "password error":

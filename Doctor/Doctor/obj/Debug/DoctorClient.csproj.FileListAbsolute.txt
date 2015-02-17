@@ -128,3 +128,29 @@ E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doc
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\Doctor.Properties.Resources.resources
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.exe.config
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.exe
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.DAL.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.Model.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.Util.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.DAL.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.Model.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\bin\Debug\Doctor.Util.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\DoctorClient.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.AboutBox.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.InstantMessageForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.LoginForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.ModifyPasswordForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.RegisterForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Forms.SelfCheckDetailForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.MainForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Panels.ContactsForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Panels.SelfCheckForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Panels.SelfInfoForm.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.Properties.Resources.resources
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\DoctorClient.csproj.GenerateResource.Cache
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.exe
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor\obj\Debug\Doctor.UI.Forms.PicLargeForm.resources

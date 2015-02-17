@@ -74,6 +74,12 @@
     <Compile Include="LoginHandler.ashx.cs">
       <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ModifyPasswordHandler.ashx.cs">
+      <DependentUpon>ModifyPasswordHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientInfoHandler.ashx.cs">
+      <DependentUpon>PatientInfoHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="PicDownloadHandler.ashx.cs">
       <DependentUpon>PicDownloadHandler.ashx</DependentUpon>
     </Compile>
@@ -87,6 +93,12 @@
     <Compile Include="SelfCheckHandler.ashx.cs">
       <DependentUpon>SelfCheckHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="SelfCheckPhotoDownloadHandler.ashx.cs">
+      <DependentUpon>SelfCheckPhotoDownloadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SelfCheckPhotosHandler.ashx.cs">
+      <DependentUpon>SelfCheckPhotosHandler.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoginHandler.ashx" />
@@ -96,6 +108,10 @@
     <Content Include="SelfCheckHandler.ashx" />
     <Content Include="DiagnosisHandler.ashx" />
     <Content Include="HospitalListHandler.ashx" />
+    <Content Include="ModifyPasswordHandler.ashx" />
+    <Content Include="PatientInfoHandler.ashx" />
+    <Content Include="SelfCheckPhotosHandler.ashx" />
+    <Content Include="SelfCheckPhotoDownloadHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,9 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UploadFiles\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Doctor.DAL\Doctor.DAL.csproj">

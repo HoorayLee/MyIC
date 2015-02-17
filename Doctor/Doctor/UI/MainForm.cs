@@ -1,5 +1,6 @@
 ﻿using Doctor.Forms;
 using Doctor.Panels;
+using Doctor.Properties;
 using Doctor.Util;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,78 @@ namespace Doctor
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// 窗口载入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //载入时为用户登出状态
+            Logout();
+
+            //注册登录信息改变时事件
+            LoginStatus.LoginStatusChanged += LoginStatus_LoginStatusChanged;
+        }
+
+        private void Login()
+        {
+            //状态栏显示
+            lbl_status.Text = "用户名：" + LoginStatus.UserInfo.Name;
+
+            //左侧按钮启用
+            picBox_check.Enabled = true;
+            picBox_message.Enabled = true;
+            picBox_selfInfo.Enabled = true;
+            picBox_logout.Enabled = true;
+
+            picBox_check.Image = Resources.查看自检;
+            picBox_message.Image = Resources.联系人;
+            picBox_selfInfo.Image = Resources.个人信息;
+            picBox_logout.Image = Resources.注销;
+
+            //右侧Panel清除所有
+            panel.Controls.Clear();
+        }
+
+        private void Logout()
+        {
+            //状态栏显示
+            lbl_status.Text = "未登录";
+
+            //左侧按钮禁用
+            picBox_check.Enabled = false;
+            picBox_message.Enabled = false;
+            picBox_selfInfo.Enabled = false;
+            picBox_logout.Enabled = false;
+
+            picBox_check.Image = Resources.查看自检_灰_;
+            picBox_message.Image = Resources.联系人_灰_;
+            picBox_selfInfo.Image = Resources.个人信息_灰_;
+            picBox_logout.Image = Resources.注销_灰_; 
+
+            //右侧Panel清除所有
+            panel.Controls.Clear();
+        }
+
+        /// <summary>
+        /// 登录信息改变时事件
+        /// </summary>
+        /// <param name="e"></param>
+        private void LoginStatus_LoginStatusChanged(EventArgs e)
+        {
+            if (LoginStatus.UserInfo != null)
+            {
+                //登录状态
+                Login();
+            }
+            else
+            {
+                //登出状态
+                Logout();
+            }
         }
 
         /// <summary>
@@ -65,8 +138,11 @@ namespace Doctor
         {
             if (MessageBox.Show("确定要注销吗？", "注销", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
-                //注销后的操作
+                //清除保存的登录状态
+                LoginStatus.Clear();
 
+                //清除panel中的内容
+                panel.Controls.Clear();
             }
         }
 
@@ -124,6 +200,7 @@ namespace Doctor
         {
             new AboutBox().ShowDialog();
         }
+
 
     }
 }

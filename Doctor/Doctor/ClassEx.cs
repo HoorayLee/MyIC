@@ -34,5 +34,24 @@ namespace Doctor
                 return false;
             }
         }
+
+        /// <summary>
+        /// 删除StringBuilder尾部的一个回车
+        /// </summary>
+        /// <param name="builder"></param>
+        public static void RemoveLine(this StringBuilder builder)
+        {
+            string newLine = Environment.NewLine;
+            string str = builder.ToString();
+            if (str.Length < newLine.Length)
+            {
+                return;
+            }
+
+            if(newLine.Equals(str.Substring(str.Length - newLine.Length)))
+            {
+                builder.Remove(builder.Length - newLine.Length, newLine.Length);
+            }
+        }
     }
 }

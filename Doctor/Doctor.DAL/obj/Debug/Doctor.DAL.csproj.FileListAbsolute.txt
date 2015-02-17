@@ -45,3 +45,12 @@ E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor.DAL\bin\Debug
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor.DAL\obj\Debug\Doctor.DAL.csprojResolveAssemblyReference.cache
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor.DAL\obj\Debug\Doctor.DAL.dll
 E:\快盘\工作\杂活\小活儿\02-0103 C# Doctor\doctors\Doctor.DAL\obj\Debug\Doctor.DAL.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.dll.config
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Doctor.DAL.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Doctor.Model.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\bin\Debug\Doctor.Model.pdb
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.dll
+C:\Users\Tony\Documents\GitHub\MyIC\Doctor\Doctor.DAL\obj\Debug\Doctor.DAL.pdb

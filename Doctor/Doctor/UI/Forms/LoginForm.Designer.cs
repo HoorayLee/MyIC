@@ -34,7 +34,6 @@
             this.tb_password = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.link_forgetPassword = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -61,6 +60,7 @@
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(118, 21);
             this.tb_username.TabIndex = 1;
+            this.tb_username.Text = "tony";
             // 
             // tb_password
             // 
@@ -69,10 +69,11 @@
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(118, 21);
             this.tb_password.TabIndex = 2;
+            this.tb_password.Text = "123";
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(62, 102);
+            this.btn_login.Location = new System.Drawing.Point(42, 89);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(75, 23);
             this.btn_login.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(143, 102);
+            this.btn_cancel.Location = new System.Drawing.Point(140, 89);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_cancel.TabIndex = 4;
@@ -90,29 +91,19 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // link_forgetPassword
-            // 
-            this.link_forgetPassword.AutoSize = true;
-            this.link_forgetPassword.Location = new System.Drawing.Point(75, 73);
-            this.link_forgetPassword.Name = "link_forgetPassword";
-            this.link_forgetPassword.Size = new System.Drawing.Size(65, 12);
-            this.link_forgetPassword.TabIndex = 5;
-            this.link_forgetPassword.TabStop = true;
-            this.link_forgetPassword.Text = "忘记密码？";
-            this.link_forgetPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_forgetPassword_LinkClicked);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 137);
-            this.Controls.Add(this.link_forgetPassword);
+            this.ClientSize = new System.Drawing.Size(246, 124);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.tb_password);
             this.Controls.Add(this.tb_username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "登录";
             this.ResumeLayout(false);
@@ -128,6 +119,5 @@
         private System.Windows.Forms.TextBox tb_password;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.LinkLabel link_forgetPassword;
     }
 }

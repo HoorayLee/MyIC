@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassEx.cs" />
+    <Compile Include="GeneralHelper.cs" />
     <Compile Include="HttpHelper.cs" />
     <Compile Include="LoginStatus.cs" />
     <Compile Include="UI\Forms\AboutBox.cs">
@@ -74,6 +75,12 @@
     </Compile>
     <Compile Include="UI\Forms\ModifyPasswordForm.Designer.cs">
       <DependentUpon>ModifyPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\PicLargeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\PicLargeForm.Designer.cs">
+      <DependentUpon>PicLargeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\RegisterForm.cs">
       <SubType>Form</SubType>
@@ -124,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\ModifyPasswordForm.resx">
       <DependentUpon>ModifyPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\PicLargeForm.resx">
+      <DependentUpon>PicLargeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
@@ -221,6 +231,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\查看自检%28灰%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\个人信息%28灰%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\联系人%28灰%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\注销%28灰%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
