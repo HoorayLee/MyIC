@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,9 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\Net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -73,6 +74,12 @@
     <Compile Include="LoginHandler.ashx.cs">
       <DependentUpon>LoginHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ModifyPasswordHandler.ashx.cs">
+      <DependentUpon>ModifyPasswordHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="PatientInfoHandler.ashx.cs">
+      <DependentUpon>PatientInfoHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="PicDownloadHandler.ashx.cs">
       <DependentUpon>PicDownloadHandler.ashx</DependentUpon>
     </Compile>
@@ -86,6 +93,12 @@
     <Compile Include="SelfCheckHandler.ashx.cs">
       <DependentUpon>SelfCheckHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="SelfCheckPhotoDownloadHandler.ashx.cs">
+      <DependentUpon>SelfCheckPhotoDownloadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SelfCheckPhotosHandler.ashx.cs">
+      <DependentUpon>SelfCheckPhotosHandler.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoginHandler.ashx" />
@@ -95,12 +108,19 @@
     <Content Include="SelfCheckHandler.ashx" />
     <Content Include="DiagnosisHandler.ashx" />
     <Content Include="HospitalListHandler.ashx" />
+    <Content Include="ModifyPasswordHandler.ashx" />
+    <Content Include="PatientInfoHandler.ashx" />
+    <Content Include="SelfCheckPhotosHandler.ashx" />
+    <Content Include="SelfCheckPhotoDownloadHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UploadFiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Doctor.DAL\Doctor.DAL.csproj">
@@ -111,9 +131,6 @@
       <Project>{d6025d65-5ac6-41fd-bbd5-8f1a0cec000f}</Project>
       <Name>Doctor.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UploadFiles\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

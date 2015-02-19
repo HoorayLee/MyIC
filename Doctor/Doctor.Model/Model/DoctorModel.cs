@@ -13,11 +13,10 @@ namespace Doctor.Model
         public System.String Password { get; set; }
         public System.String Name { get; set; }
         public System.String PhotoPath { get; set; }
-        public System.String Hospital { get; set; }
         public System.String LicenseNo { get; set; }
         public System.String LicensePath { get; set; }
         public System.Boolean IfAuth { get; set; }
-
+        public System.String RealName { get; set; }
     }
 
 }

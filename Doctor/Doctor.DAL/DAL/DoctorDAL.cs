@@ -14,15 +14,16 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"insert into Doctor(hospital_id, password, name, photoPath, licenseNo, licensePath, ifAuth)
-				values(@hospital_id, @password, @name, @photoPath, @licenseNo, @licensePath, @ifAuth)",
+                SqlHelper.ExecuteNonQuery(@"insert into Doctor(hospital_id, password, name, photoPath, licenseNo, licensePath, ifAuth, realname)
+				values(@hospital_id, @password, @name, @photoPath, @licenseNo, @licensePath, @ifAuth, @realname)",
                     new SqlParameter("@hospital_id", SqlHelper.ToDBValue(doctor.Hospital_id)),
                     new SqlParameter("@password", doctor.Password),
                     new SqlParameter("@name", doctor.Name),
                     new SqlParameter("@photoPath", SqlHelper.ToDBValue(doctor.PhotoPath)),
                     new SqlParameter("@licenseNo", SqlHelper.ToDBValue(doctor.LicenseNo)),
                     new SqlParameter("@licensePath", SqlHelper.ToDBValue(doctor.LicensePath)),
-                    new SqlParameter("@ifAuth", doctor.IfAuth)
+                    new SqlParameter("@ifAuth", doctor.IfAuth),
+                    new SqlParameter("@realname", SqlHelper.ToDBValue(doctor.RealName))
                 );
                 return true;
             }
@@ -57,7 +58,8 @@ namespace Doctor.DAL
 				photoPath = @photoPath,
 				licenseNo = @licenseNo,
 				licensePath = @licensePath,
-				ifAuth = @ifAuth
+				ifAuth = @ifAuth,
+                realname = @realname
 				where doc_id = @doc_id",
                     new SqlParameter("@hospital_id", SqlHelper.ToDBValue(doctor.Hospital_id)),
                     new SqlParameter("@password", doctor.Password),
@@ -66,6 +68,7 @@ namespace Doctor.DAL
                     new SqlParameter("@licenseNo", SqlHelper.ToDBValue(doctor.LicenseNo)),
                     new SqlParameter("@licensePath", SqlHelper.ToDBValue(doctor.LicensePath)),
                     new SqlParameter("@ifAuth", doctor.IfAuth),
+                    new SqlParameter("@realname", doctor.RealName),
                     new SqlParameter("@doc_id", doctor.Doc_id)
                 );
                 return true;
@@ -117,6 +120,7 @@ namespace Doctor.DAL
             doctor.LicenseNo = (System.String)SqlHelper.FromDBValue(row["licenseNo"]);
             doctor.LicensePath = (System.String)SqlHelper.FromDBValue(row["licensePath"]);
             doctor.IfAuth = (System.Boolean)row["ifAuth"];
+            doctor.RealName = (System.String)SqlHelper.FromDBValue(row["realname"]);
             return doctor;
         }
 
@@ -175,6 +179,41 @@ namespace Doctor.DAL
                     state = "password error";
                     return null;
                 }
+            }
+        }
+
+        /// <summary>
+        /// 修改医生的密码
+        /// </summary>
+        /// <param name="doc_id">Doctor表的主键</param>
+        /// <param name="oldPwd">旧密码</param>
+        /// <param name="newPwd">新密码</param>
+        /// <param name="state">成功success，失败failed，密码错误password error</param>
+        public static void ModifyPassword(long doc_id, string oldPwd, string newPwd, ref string state)
+        {
+            DataTable table = SqlHelper.ExecuteDataTable("select * from Doctor where doc_id = @doc_id and password = @password",
+                new SqlParameter("@doc_id", doc_id),
+                new SqlParameter("@password", oldPwd));
+            if (table.Rows.Count == 1)
+            {
+                try
+                {
+                    SqlHelper.ExecuteNonQuery(@"update Doctor set
+				        password = @password
+				        where doc_id = @doc_id",
+                        new SqlParameter("@password", newPwd),
+                        new SqlParameter("@doc_id", doc_id)
+                    );
+                    state = "success";
+                }
+                catch (SqlException)
+                {
+                    state = "failed"; 
+                } 
+            }
+            else
+            {
+                state = "password error";
             }
         }
     }

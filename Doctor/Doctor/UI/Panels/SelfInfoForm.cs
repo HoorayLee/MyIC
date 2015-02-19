@@ -1,9 +1,13 @@
-﻿using Doctor.Forms;
+﻿using Doctor.DAL;
+using Doctor.Forms;
+using Doctor.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -31,5 +35,81 @@ namespace Doctor.Panels
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
         }
+        public static Bitmap KiResizeImage(Bitmap bmp, int newW, int newH)
+        {
+            try
+            {
+                Bitmap b = new Bitmap(newW, newH);
+                Graphics g = Graphics.FromImage(b);
+
+                // 插值算法的质量
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                g.DrawImage(bmp, new Rectangle(0, 0, newW, newH), new Rectangle(0, 0, bmp.Width, bmp.Height), GraphicsUnit.Pixel);
+                g.Dispose();
+
+                return b;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        private void SelfInfoForm_Load(object sender, EventArgs e)
+        {
+            if (null != LoginStatus.UserInfo && !string.IsNullOrEmpty(LoginStatus.UserInfo.PhotoPath))
+            {
+                DoctorModel userInfo = LoginStatus.UserInfo;
+                Bitmap image = null;
+
+                //下载并显示个人照片
+                string photoPath = Path.Combine(GeneralHelper.DownloadPicFolder, userInfo.PhotoPath);
+                if (!File.Exists(photoPath))
+                {
+                    HttpHelper.DownloadFile("PicDownloadHandler.ashx", userInfo.PhotoPath);
+                }
+                image = new Bitmap(photoPath);
+                image = KiResizeImage(image, picBox_photo.Width, picBox_photo.Height);
+                picBox_photo.BackgroundImage = image;
+                
+                //下载并显示医师证
+                string licensePath = Path.Combine(GeneralHelper.DownloadPicFolder, userInfo.LicensePath);
+                if (!File.Exists(licensePath))
+                {
+                    HttpHelper.DownloadFile("PicDownloadHandler.ashx", userInfo.LicensePath);         
+                }
+                image = new Bitmap(licensePath);
+                image = KiResizeImage(image, picBox_license.Width, picBox_license.Height);               
+                picBox_license.BackgroundImage = image;
+
+                //其他UI控件显示
+                lbl_username.Text = userInfo.Name;
+
+                if (userInfo.Hospital_id == null)
+                {
+                    lbl_hospital.Text = "未填写";
+                }
+                else
+                {
+                    HospitalModel hospital = HospitalDAL.GetById((long)userInfo.Hospital_id);
+                    lbl_hospital.Text = hospital.Name;
+                }
+
+                lbl_license.Text = (userInfo.LicenseNo == null ? "未填写" : userInfo.LicenseNo);
+                lbl_realname.Text = (userInfo.RealName == null ? "未填写" : userInfo.RealName);
+
+                //认证与否
+                if (userInfo.IfAuth)
+                {
+                    lbl_ifAuth.Text = "已认证";
+                    lbl_ifAuth.ForeColor = Color.Black;
+                }
+                else
+                {
+                    lbl_ifAuth.Text = "未认证";
+                    lbl_ifAuth.ForeColor = Color.Red;
+                }
+             }
+       }
     }
 }

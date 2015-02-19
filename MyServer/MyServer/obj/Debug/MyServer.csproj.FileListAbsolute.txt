@@ -28,3 +28,6 @@ D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.dll
 D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.pdb
 D:\MyServer\MyServer\bin\Debug\Newtonsoft.Json.xml
 D:\MyServer\MyServer\obj\Debug\MyServer.csprojResolveAssemblyReference.cache
+C:\Users\Tony\Documents\GitHub\MyIC\MyServer\MyServer\bin\Debug\MyServer.exe.config
+C:\Users\Tony\Documents\GitHub\MyIC\MyServer\MyServer\obj\Debug\MyServer.exe
+C:\Users\Tony\Documents\GitHub\MyIC\MyServer\MyServer\obj\Debug\MyServer.pdb

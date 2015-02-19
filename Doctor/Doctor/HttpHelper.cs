@@ -102,11 +102,17 @@ namespace Doctor
         public static bool DownloadFile(string url, string fileName)
         {
             //判断本地是否有图片缓存，如是则不用下载图片
+            string dirPath = GeneralHelper.DownloadPicFolder;
+            string newFilePath = Path.Combine(dirPath, fileName);
+            if (File.Exists(newFilePath))
+            {
+                return true;
+            }
 
             try
             {
                 //下载图片
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://121.42.136.178:19710/" + url);
                 byte[] fileNameBytes = Encoding.UTF8.GetBytes(fileName);
                 request.Method = "POST";
                 request.GetRequestStream().Write(fileNameBytes, 0, fileNameBytes.Length);
@@ -116,15 +122,14 @@ namespace Doctor
                 Stream responseStream = response.GetResponseStream();
 
                 //存放文件夹
-                string dirPath = Environment.CurrentDirectory + "/DownloadFiles/";
                 if (!Directory.Exists(dirPath))
                 {
                     Directory.CreateDirectory(dirPath);
                 }
 
                 //写入文件
-                using(FileStream fileStream = new FileStream(Environment.CurrentDirectory + 
-                    "/DownloadFiles/" + fileName, FileMode.Create, FileAccess.Write))
+                using (FileStream fileStream = new FileStream(newFilePath, 
+                    FileMode.Create, FileAccess.Write))
                 {
                     byte[] buf = new byte[1024];
                     int readCount = responseStream.Read(buf, 0, buf.Length);

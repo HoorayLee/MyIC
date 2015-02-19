@@ -1,5 +1,8 @@
 ﻿using Doctor.DAL;
 using Doctor.Model;
+using Doctor.Util;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +19,22 @@ namespace Doctor.Forms
         private string photoPath;
         private string licensePath;
 
+
         public RegisterForm()
         {
             InitializeComponent();
+        }
+
+        /// <summary>     
+        /// 窗体载入事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterForm_Load(object sender, EventArgs e)
+        {
+            Hat_provinceModel[] provinces = Hat_provinceDAL.GetAll();
+            cb_province.DataSource = provinces;
+            cb_province.DisplayMember = "province";
         }
 
         /// <summary>
@@ -59,6 +75,13 @@ namespace Doctor.Forms
             {
                 MessageBox.Show("两次输入密码不一致");
                 tb_passwordAgain.Focus();
+                return;
+            }
+            
+            //4.个人照片
+            if (string.IsNullOrEmpty(photoPath))
+            {
+                MessageBox.Show("请选择个人照片");
                 return;
             }
             
@@ -116,12 +139,36 @@ namespace Doctor.Forms
                 return;
             }
 
-            DoctorModel model = new DoctorModel();
-            model.Name = username;
-            model.Password = password;
-        }
 
-        
+            DoctorModel model = new DoctorModel();
+
+            //必须信息
+            model.Name = username;
+            model.Password = MD5.GetMD5(tb_passwordAgain.Text);
+
+            //非必须信息（认证信息）
+            string newPhotoPath = HttpHelper.UploadFile("PicUploadHandler.ashx", photoPath);
+            string newLicensePath = HttpHelper.UploadFile("PicUploadHandler.ashx", licensePath);
+            model.PhotoPath = newPhotoPath;
+            model.LicensePath = newLicensePath;
+
+            model.RealName = tb_realname.Text.Trim();
+            model.LicenseNo = tb_license.Text;
+
+            Hospital selectedHospital = cb_hospital.SelectedItem as Hospital;
+            model.Hospital_id = selectedHospital.Hospital_id;
+
+            string result = HttpHelper.ConnectionForResult("RegisterHandler.ashx", JsonConvert.SerializeObject(model));
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("注册失败，请重新尝试！");
+            }
+            else
+            {
+                MessageBox.Show("注册成功！");
+                this.Close();
+            }
+        }
 
         /// <summary>
         /// 点击事件：取消
@@ -143,7 +190,7 @@ namespace Doctor.Forms
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 photoPath = openFileDialog.FileName;
-
+                
                 picBox_photo.Image = Image.FromFile(photoPath);
                 lbl_photo.Text = photoPath;
                 lbl_photo.ForeColor = Color.Black;
@@ -167,12 +214,6 @@ namespace Doctor.Forms
             }
         }
 
-        private void RegisterForm_Load(object sender, EventArgs e)
-        {
-            Hat_provinceModel[] provinces = Hat_provinceDAL.GetAll();
-            cb_province.DataSource = provinces;
-            cb_province.DisplayMember = "province";
-        }
 
         /// <summary>
         /// 选择省
@@ -199,5 +240,50 @@ namespace Doctor.Forms
             cb_area.DataSource = areas;
             cb_area.DisplayMember = "area";
         }
+
+        private class Hospital 
+        {
+            public int Hospital_id { get; set; }
+            public string Name { get; set; }
+        }
+
+        private void cb_area_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cb_area.Text))
+            {
+                Hat_areaModel area = cb_area.SelectedItem as Hat_areaModel;
+                int area_id = area.Id;
+                //string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", 2262 + "");
+                
+                //清除原来的医院列表
+                string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", area_id.ToString());
+                if (!string.IsNullOrEmpty(hospitalList))
+                {
+                    JObject jObjResult = JObject.Parse(hospitalList);
+                    int count = (int)jObjResult.Property("count");
+                    List<Hospital> hospitals = new List<Hospital>();
+                    if (count > 0)
+                    {
+                        JArray jlist = JArray.Parse(jObjResult["content"].ToString());
+                        for (int i = 0; i < jlist.Count; ++i)
+                        {
+                            Hospital hospital = new Hospital();
+                            hospital.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
+                            hospital.Name = jlist[i]["name"].ToString();
+                            hospitals.Add(hospital);
+                        }
+                    }
+                    else
+                    {
+                        cb_hospital.Text = "";
+                    }
+
+                    cb_hospital.DataSource = hospitals;
+                    cb_hospital.DisplayMember = "name";
+                    cb_hospital.ValueMember = "hospital_id";
+                }
+            }
+        }
+     
     }
 }

@@ -14,9 +14,10 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"insert into Diagnosis(record_id, result, time)
-				values(@record_id, @result, @time)",
+                SqlHelper.ExecuteNonQuery(@"insert into Diagnosis(record_id, doc_id, result, time)
+				values(@record_id, @doc_id, @result, @time)",
                     new SqlParameter("@record_id", diagnosis.Record_id),
+                    new SqlParameter("@doc_id", diagnosis.Doc_id),
                     new SqlParameter("@result", diagnosis.Result),
                     new SqlParameter("@time", diagnosis.Time)
                 );
@@ -48,10 +49,12 @@ namespace Doctor.DAL
             {
                 SqlHelper.ExecuteNonQuery(@"update Diagnosis set
 				record_id = @record_id,
+                doc_id = @doc_id,
 				result = @result,
 				time = @time
 				where diagnosis_id = @diagnosis_id",
                     new SqlParameter("@record_id", diagnosis.Record_id),
+                    new SqlParameter("@doc_id", diagnosis.Doc_id),
                     new SqlParameter("@result", diagnosis.Result),
                     new SqlParameter("@time", diagnosis.Time),
                     new SqlParameter("@diagnosis_id", diagnosis.Diagnosis_id)
@@ -83,9 +86,10 @@ namespace Doctor.DAL
             }
         }
 
-        public static DiagnosisModel[] GetAll()
+        public static DiagnosisModel[] GetAllByRecordId(long record_id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable("select * from Diagnosis");
+            DataTable table = SqlHelper.ExecuteDataTable("select * from Diagnosis where record_id = @record_id",
+                new SqlParameter("@record_id", record_id));
             DiagnosisModel[] diagnosis = new DiagnosisModel[table.Rows.Count];
             for (int i = 0; i < table.Rows.Count; i++)
             {
@@ -99,6 +103,7 @@ namespace Doctor.DAL
             DiagnosisModel diagnosis = new DiagnosisModel();
             diagnosis.Diagnosis_id = (System.Int64)row["diagnosis_id"];
             diagnosis.Record_id = (System.Int64)row["record_id"];
+            diagnosis.Doc_id = (System.Int64)row["doc_id"];
             diagnosis.Result = (System.String)row["result"];
             diagnosis.Time = (System.DateTime)row["time"];
             return diagnosis;

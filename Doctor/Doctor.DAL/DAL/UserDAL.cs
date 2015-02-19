@@ -15,7 +15,7 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"insert into User(password, date_of_birth, name)
+                SqlHelper.ExecuteNonQuery(@"insert into [User](password, date_of_birth, name)
 				values(@password, @date_of_birth, @name)",
                     new SqlParameter("@password", user.Password),
                     new SqlParameter("@date_of_birth", SqlHelper.ToDBValue(user.Date_of_birth)),
@@ -33,7 +33,7 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"delete from User where user_id = @id",
+                SqlHelper.ExecuteNonQuery(@"delete from [User] where user_id = @id",
                     new SqlParameter("@id", id));
                 return true;
             }
@@ -47,7 +47,7 @@ namespace Doctor.DAL
         {
             try
             {
-                SqlHelper.ExecuteNonQuery(@"update User set
+                SqlHelper.ExecuteNonQuery(@"update [User] set
 				password = @password,
 				date_of_birth = @date_of_birth,
 				name = @name
@@ -67,7 +67,7 @@ namespace Doctor.DAL
 
         public static UserModel GetById(System.Int64 id)
         {
-            DataTable table = SqlHelper.ExecuteDataTable(@"select * from User where user_id = @id",
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from [User] where user_id = @id",
                 new SqlParameter("@id", id));
             if (table.Rows.Count <= 0)
             {
@@ -86,7 +86,7 @@ namespace Doctor.DAL
 
         public static UserModel[] GetAll()
         {
-            DataTable table = SqlHelper.ExecuteDataTable("select * from User");
+            DataTable table = SqlHelper.ExecuteDataTable("select * from [User]");
             UserModel[] user = new UserModel[table.Rows.Count];
             for (int i = 0; i < table.Rows.Count; i++)
             {

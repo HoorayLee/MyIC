@@ -35,13 +35,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.picBox_license = new System.Windows.Forms.PictureBox();
             this.lbl_ifAuth = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbl_realname = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_hospital = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lbl_license = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_photo)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -126,6 +126,15 @@
             this.lbl_ifAuth.TabIndex = 0;
             this.lbl_ifAuth.Text = "未认证";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "真实姓名：";
+            // 
             // lbl_realname
             // 
             this.lbl_realname.AutoSize = true;
@@ -135,6 +144,15 @@
             this.lbl_realname.TabIndex = 0;
             this.lbl_realname.Text = "真实姓名填此";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "所属医院：";
+            // 
             // lbl_hospital
             // 
             this.lbl_hospital.AutoSize = true;
@@ -143,6 +161,15 @@
             this.lbl_hospital.Size = new System.Drawing.Size(77, 12);
             this.lbl_hospital.TabIndex = 0;
             this.lbl_hospital.Text = "所属医院填此";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 93);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 12);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "执业医师证编码：";
             // 
             // lbl_license
             // 
@@ -162,33 +189,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "执业医师证照片：";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "执业医师证编码：";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "所属医院：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "真实姓名：";
-            // 
             // SelfInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -198,6 +198,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SelfInfoForm";
             this.Text = "个人信息";
+            this.Load += new System.EventHandler(this.SelfInfoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_photo)).EndInit();
