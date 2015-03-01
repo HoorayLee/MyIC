@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>LEE</Machine>
+    <WindowsUser>leehorray</WindowsUser>
+    <TargetPlatformIdentifier>Windows Phone</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
+    <PackageIdentityName>645118a7-f02c-4f2d-8e68-e45e241db056</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\leehorray\Documents\dentists\dentists\obj\ARM\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\leehorray\Documents\dentists\dentists\Bin\ARM\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Bin\ARM\Debug\dentists.dll">
+      <PackagePath>dentists.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.winmd">
+      <PackagePath>AMapSDKV2Comp.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll">
+      <PackagePath>Coding4Fun.Toolkit.Controls.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\Coding4Fun.Toolkit.dll">
+      <PackagePath>Coding4Fun.Toolkit.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Maps.dll">
+      <PackagePath>Com.AMap.Api.Maps.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Services.dll">
+      <PackagePath>Com.AMap.Api.Services.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Google.ProtocolBuffers.dll">
+      <PackagePath>Google.ProtocolBuffers.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ICSharpCode.SharpZLib.Phone.dll">
+      <PackagePath>ICSharpCode.SharpZLib.Phone.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Controls.dll">
+      <PackagePath>ImageTools.Controls.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.dll">
+      <PackagePath>ImageTools.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Filtering.dll">
+      <PackagePath>ImageTools.Filtering.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Bmp.dll">
+      <PackagePath>ImageTools.IO.Bmp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Gif.dll">
+      <PackagePath>ImageTools.IO.Gif.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Png.dll">
+      <PackagePath>ImageTools.IO.Png.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Utils.dll">
+      <PackagePath>ImageTools.Utils.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\PhoneCodeContractsAssemblies.dll">
+      <PackagePath>PhoneCodeContractsAssemblies.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Tamir.SharpSSH.1.1.1.13\lib\Tamir.SharpSSH.dll">
+      <PackagePath>Tamir.SharpSSH.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll">
+      <PackagePath>AMapSDKV2Comp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\cs\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>cs\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\da\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>da\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\de\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>de\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\es\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>es\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\fr\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>fr\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\it\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>it\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\ko\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>ko\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\no\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>no\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\pl\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>pl\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\pt\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>pt\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\ru\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>ru\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\sk\Coding4Fun.Toolkit.Controls.resources.dll">
+      <PackagePath>sk\Coding4Fun.Toolkit.Controls.resources.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.xml">
+      <PackagePath>ImageTools.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Controls.xml">
+      <PackagePath>ImageTools.Controls.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Filtering.xml">
+      <PackagePath>ImageTools.Filtering.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Bmp.xml">
+      <PackagePath>ImageTools.IO.Bmp.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Gif.xml">
+      <PackagePath>ImageTools.IO.Gif.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.IO.Png.xml">
+      <PackagePath>ImageTools.IO.Png.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\packages\ImageTools.0.3.1\lib\sl3-wp\ImageTools.Utils.xml">
+      <PackagePath>ImageTools.Utils.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\bktile.data">
+      <PackagePath>Assets\bktile.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ft2.data">
+      <PackagePath>Assets\ft2.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\icn_hv3.data">
+      <PackagePath>Assets\icn_hv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\icn_lv3.data">
+      <PackagePath>Assets\icn_lv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\lr.data">
+      <PackagePath>Assets\lr.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ra.data">
+      <PackagePath>Assets\ra.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\rd.data">
+      <PackagePath>Assets\rd.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\style_lv3.data">
+      <PackagePath>Assets\style_lv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\style_slv3.data">
+      <PackagePath>Assets\style_slv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\wk.data">
+      <PackagePath>Assets\wk.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\DrawLinePixelShader.cso">
+      <PackagePath>Assets\DrawLinePixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\DrawLineVertexShader.cso">
+      <PackagePath>Assets\DrawLineVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\DrawPolygonPixelShader.cso">
+      <PackagePath>Assets\DrawPolygonPixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\DrawPolygonVertexShader.cso">
+      <PackagePath>Assets\DrawPolygonVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\InsertPicturePixelShader.cso">
+      <PackagePath>Assets\InsertPicturePixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\InsertPictureVertexShader.cso">
+      <PackagePath>Assets\InsertPictureVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\lt.cso">
+      <PackagePath>Assets\lt.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ltc.cso">
+      <PackagePath>Assets\ltc.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\oc.cso">
+      <PackagePath>Assets\oc.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ov2.cso">
+      <PackagePath>Assets\ov2.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ov3.cso">
+      <PackagePath>Assets\ov3.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\v3t.cso">
+      <PackagePath>Assets\v3t.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\vvt.cso">
+      <PackagePath>Assets\vvt.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Toolkit.Content\ApplicationBar.Cancel.png">
+      <PackagePath>Toolkit.Content\ApplicationBar.Cancel.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Toolkit.Content\ApplicationBar.Check.png">
+      <PackagePath>Toolkit.Content\ApplicationBar.Check.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\AlignmentGrid.png">
+      <PackagePath>Assets\AlignmentGrid.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\ApplicationIcon.png">
+      <PackagePath>Assets\ApplicationIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\BadgeLogo.png">
+      <PackagePath>Assets\BadgeLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\SquareTile150x150.png">
+      <PackagePath>Assets\SquareTile150x150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\SquareTile71x71.png">
+      <PackagePath>Assets\SquareTile71x71.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\WideLogo.png">
+      <PackagePath>Assets\WideLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Tiles\FlipCycleTileLarge.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileLarge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Tiles\FlipCycleTileMedium.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileMedium.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Tiles\FlipCycleTileSmall.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileSmall.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Tiles\IconicTileMediumLarge.png">
+      <PackagePath>Assets\Tiles\IconicTileMediumLarge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Assets\Tiles\IconicTileSmall.png">
+      <PackagePath>Assets\Tiles\IconicTileSmall.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\LibMap.dll">
+      <PackagePath>LibMap.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\leehorray\Documents\dentists\dentists\Bin\ARM\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
