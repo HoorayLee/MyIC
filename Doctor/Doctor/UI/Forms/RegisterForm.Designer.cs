@@ -57,6 +57,9 @@
             this.cb_area = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tb_realname = new System.Windows.Forms.TextBox();
+            this.bgWorker = new System.ComponentModel.BackgroundWorker();
+            this.bgWorker_username = new System.ComponentModel.BackgroundWorker();
+            this.lbl_usernameExist = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_license)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_photo)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -66,7 +69,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Location = new System.Drawing.Point(15, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
@@ -75,7 +78,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 49);
+            this.label2.Location = new System.Drawing.Point(15, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 0;
@@ -84,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 75);
+            this.label3.Location = new System.Drawing.Point(15, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 12);
             this.label3.TabIndex = 0;
@@ -92,14 +95,15 @@
             // 
             // tb_username
             // 
-            this.tb_username.Location = new System.Drawing.Point(109, 19);
+            this.tb_username.Location = new System.Drawing.Point(109, 24);
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(132, 21);
             this.tb_username.TabIndex = 1;
+            this.tb_username.Leave += new System.EventHandler(this.tb_username_Leave);
             // 
             // tb_password
             // 
-            this.tb_password.Location = new System.Drawing.Point(109, 46);
+            this.tb_password.Location = new System.Drawing.Point(109, 52);
             this.tb_password.Name = "tb_password";
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(132, 21);
@@ -107,7 +111,7 @@
             // 
             // tb_passwordAgain
             // 
-            this.tb_passwordAgain.Location = new System.Drawing.Point(110, 72);
+            this.tb_passwordAgain.Location = new System.Drawing.Point(110, 81);
             this.tb_passwordAgain.Name = "tb_passwordAgain";
             this.tb_passwordAgain.PasswordChar = '*';
             this.tb_passwordAgain.Size = new System.Drawing.Size(131, 21);
@@ -116,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 100);
+            this.label4.Location = new System.Drawing.Point(15, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 0;
@@ -124,7 +128,7 @@
             // 
             // btn_selectPhoto
             // 
-            this.btn_selectPhoto.Location = new System.Drawing.Point(110, 293);
+            this.btn_selectPhoto.Location = new System.Drawing.Point(110, 305);
             this.btn_selectPhoto.Name = "btn_selectPhoto";
             this.btn_selectPhoto.Size = new System.Drawing.Size(65, 23);
             this.btn_selectPhoto.TabIndex = 4;
@@ -210,7 +214,7 @@
             // picBox_photo
             // 
             this.picBox_photo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBox_photo.Location = new System.Drawing.Point(110, 99);
+            this.picBox_photo.Location = new System.Drawing.Point(110, 111);
             this.picBox_photo.Name = "picBox_photo";
             this.picBox_photo.Size = new System.Drawing.Size(133, 187);
             this.picBox_photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -256,6 +260,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_usernameExist);
             this.groupBox1.Controls.Add(this.lbl_photo);
             this.groupBox1.Controls.Add(this.picBox_photo);
             this.groupBox1.Controls.Add(this.label1);
@@ -277,7 +282,7 @@
             // 
             this.lbl_photo.AutoSize = true;
             this.lbl_photo.ForeColor = System.Drawing.Color.Red;
-            this.lbl_photo.Location = new System.Drawing.Point(181, 298);
+            this.lbl_photo.Location = new System.Drawing.Point(181, 310);
             this.lbl_photo.Name = "lbl_photo";
             this.lbl_photo.Size = new System.Drawing.Size(65, 12);
             this.lbl_photo.TabIndex = 5;
@@ -341,6 +346,16 @@
             this.tb_realname.Size = new System.Drawing.Size(132, 21);
             this.tb_realname.TabIndex = 5;
             // 
+            // lbl_usernameExist
+            // 
+            this.lbl_usernameExist.AutoSize = true;
+            this.lbl_usernameExist.ForeColor = System.Drawing.Color.Red;
+            this.lbl_usernameExist.Location = new System.Drawing.Point(107, 9);
+            this.lbl_usernameExist.Name = "lbl_usernameExist";
+            this.lbl_usernameExist.Size = new System.Drawing.Size(77, 12);
+            this.lbl_usernameExist.TabIndex = 12;
+            this.lbl_usernameExist.Text = "用户名已存在";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -398,5 +413,8 @@
         private System.Windows.Forms.ComboBox cb_area;
         private System.Windows.Forms.Label lbl_photo;
         private System.Windows.Forms.Label lbl_license;
+        private System.ComponentModel.BackgroundWorker bgWorker;
+        private System.ComponentModel.BackgroundWorker bgWorker_username;
+        private System.Windows.Forms.Label lbl_usernameExist;
     }
 }

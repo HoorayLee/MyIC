@@ -1,5 +1,4 @@
-﻿using Doctor.DAL;
-using Doctor.Model;
+﻿using Doctor.Model;
 using Doctor.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,6 +9,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Doctor.Forms
@@ -32,9 +33,13 @@ namespace Doctor.Forms
         /// <param name="e"></param>
         private void RegisterForm_Load(object sender, EventArgs e)
         {
-            Hat_provinceModel[] provinces = Hat_provinceDAL.GetAll();
-            cb_province.DataSource = provinces;
+            //加载省市区数据
+            GeneralHelper.LoadLocationData();
+
+            cb_province.DataSource = GeneralHelper.Provinces;
             cb_province.DisplayMember = "province";
+
+            lbl_usernameExist.Visible = false;
         }
 
         /// <summary>
@@ -147,6 +152,7 @@ namespace Doctor.Forms
             model.Password = MD5.GetMD5(tb_passwordAgain.Text);
 
             //非必须信息（认证信息）
+            this.Cursor = Cursors.WaitCursor;
             string newPhotoPath = HttpHelper.UploadFile("PicUploadHandler.ashx", photoPath);
             string newLicensePath = HttpHelper.UploadFile("PicUploadHandler.ashx", licensePath);
             model.PhotoPath = newPhotoPath;
@@ -159,14 +165,29 @@ namespace Doctor.Forms
             model.Hospital_id = selectedHospital.Hospital_id;
 
             string result = HttpHelper.ConnectionForResult("RegisterHandler.ashx", JsonConvert.SerializeObject(model));
+            this.Cursor = Cursors.Default;
+
             if (string.IsNullOrEmpty(result))
             {
-                MessageBox.Show("注册失败，请重新尝试！");
+                MessageBox.Show("网络异常");
             }
             else
             {
-                MessageBox.Show("注册成功！");
-                this.Close();
+                JObject jObj = JObject.Parse(result);
+                string state = (string)jObj["state"];
+                if ("username exist".Equals(state))
+                {
+                    MessageBox.Show("用户名已存在");
+                }
+                else if ("failed".Equals(state))
+                {
+                    MessageBox.Show("注册失败，请重新尝试！");
+                }
+                else if ("success".Equals(state))
+                {
+                    MessageBox.Show("注册成功！");
+                    this.Close();
+                }
             }
         }
 
@@ -214,7 +235,6 @@ namespace Doctor.Forms
             }
         }
 
-
         /// <summary>
         /// 选择省
         /// </summary>
@@ -223,8 +243,7 @@ namespace Doctor.Forms
         private void cb_province_SelectedIndexChanged(object sender, EventArgs e)
         {
             Hat_provinceModel province = (Hat_provinceModel)cb_province.SelectedItem;
-            Hat_cityModel[] cities = Hat_cityDAL.GetAllByProvinceId(province.Id);
-            cb_city.DataSource = cities;
+            cb_city.DataSource = GeneralHelper.GetCitiesByProvince(province);
             cb_city.DisplayMember = "city";
         }
 
@@ -236,8 +255,7 @@ namespace Doctor.Forms
         private void cb_city_SelectedIndexChanged(object sender, EventArgs e)
         {
             Hat_cityModel city = (Hat_cityModel)cb_city.SelectedItem;
-            Hat_areaModel[] areas = Hat_areaDAL.GetAllByCityId(city.Id);
-            cb_area.DataSource = areas;
+            cb_area.DataSource = GeneralHelper.GetAreasByCity(city); 
             cb_area.DisplayMember = "area";
         }
 
@@ -251,38 +269,91 @@ namespace Doctor.Forms
         {
             if (!string.IsNullOrEmpty(cb_area.Text))
             {
+                if (bgWorker.IsBusy)
+                {
+                    return;
+                }
+
                 Hat_areaModel area = cb_area.SelectedItem as Hat_areaModel;
                 int area_id = area.Id;
                 //string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", 2262 + "");
                 
+                //异步操作
                 //清除原来的医院列表
-                string hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", area_id.ToString());
-                if (!string.IsNullOrEmpty(hospitalList))
+                cb_hospital.Cursor = Cursors.WaitCursor;
+                string hospitalList = null;
+                bgWorker.DoWork += (a, b) => 
                 {
-                    JObject jObjResult = JObject.Parse(hospitalList);
-                    int count = (int)jObjResult.Property("count");
-                    List<Hospital> hospitals = new List<Hospital>();
-                    if (count > 0)
-                    {
-                        JArray jlist = JArray.Parse(jObjResult["content"].ToString());
-                        for (int i = 0; i < jlist.Count; ++i)
-                        {
-                            Hospital hospital = new Hospital();
-                            hospital.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
-                            hospital.Name = jlist[i]["name"].ToString();
-                            hospitals.Add(hospital);
-                        }
-                    }
-                    else
-                    {
-                        cb_hospital.Text = "";
-                    }
+                    hospitalList = HttpHelper.ConnectionForResult("HospitalListHandler.ashx", area_id.ToString()); 
+                };
 
-                    cb_hospital.DataSource = hospitals;
-                    cb_hospital.DisplayMember = "name";
-                    cb_hospital.ValueMember = "hospital_id";
-                }
+                bgWorker.RunWorkerCompleted += (a, b) =>
+                {
+                    if (!string.IsNullOrEmpty(hospitalList))
+                    {
+                        JObject jObjResult = JObject.Parse(hospitalList);
+                        int count = (int)jObjResult.Property("count");
+                        List<Hospital> hospitals = new List<Hospital>();
+                        if (count > 0)
+                        {
+                            JArray jlist = JArray.Parse(jObjResult["content"].ToString());
+                            for (int i = 0; i < jlist.Count; ++i)
+                            {
+                                Hospital hospital = new Hospital();
+                                hospital.Hospital_id = int.Parse(jlist[i]["hospital_id"].ToString());
+                                hospital.Name = jlist[i]["name"].ToString();
+                                hospitals.Add(hospital);
+                            }
+                        }
+                        else
+                        {
+                            cb_hospital.Text = "";
+                        }
+
+                        cb_hospital.DataSource = hospitals;
+                        cb_hospital.DisplayMember = "name";
+                        cb_hospital.ValueMember = "hospital_id";
+                    }
+                    cb_hospital.Cursor = Cursors.Default;
+                };
+                bgWorker.RunWorkerAsync();
             }
+        }
+
+        /// <summary>
+        /// 离开用户名控件时检查用户名是否存在
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tb_username_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tb_username.Text.Trim()))
+	        {
+		        return;
+        	}
+
+            //检查用户名是否存在
+            string result = null;
+            bgWorker_username.DoWork += (a, b) =>
+            {
+                JObject jObj = new JObject();
+                jObj.Add("username", tb_username.Text.Trim());
+                result = HttpHelper.ConnectionForResult("CheckUsernameExistHandler.ashx", jObj.ToString());
+            };
+            bgWorker_username.RunWorkerCompleted += (a, b) =>
+            {
+                JObject jObj = JObject.Parse(result);
+                string state = (string)jObj["state"];
+                if ("exist".Equals(state))
+                {
+                    lbl_usernameExist.Visible = true;
+                }
+                else
+                {
+                    lbl_usernameExist.Visible = false;
+                }
+            };
+            bgWorker_username.RunWorkerAsync();
         }
      
     }

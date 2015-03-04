@@ -56,7 +56,10 @@ namespace Doctor.Forms
             jObj.Add("doc_id", LoginStatus.UserInfo.Doc_id);
             jObj.Add("old_password", MD5.GetMD5(oldPwd));
             jObj.Add("new_password", MD5.GetMD5(newPwd));
+
+            this.Cursor = Cursors.WaitCursor;
             string result = HttpHelper.ConnectionForResult("ModifyPasswordHandler.ashx", jObj.ToString());
+            this.Cursor = Cursors.Default;
 
             //连接失败
             if (null == result)

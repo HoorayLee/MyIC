@@ -19,7 +19,7 @@ namespace DoctorServer
 
         public void ProcessRequest(HttpContext context)
         {
-            StreamReader reader = new StreamReader(context.Request.InputStream);
+            StreamReader reader = new StreamReader(context.Request.InputStream, Encoding.UTF8);
             string jObjStr = reader.ReadToEnd();
             DoctorModel userModel = JsonConvert.DeserializeObject<DoctorModel>(jObjStr);
 

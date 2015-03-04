@@ -1,6 +1,7 @@
-﻿using Doctor.DAL;
-using Doctor.Forms;
+﻿using Doctor.Forms;
 using Doctor.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,6 +58,7 @@ namespace Doctor.Panels
         }
         private void SelfInfoForm_Load(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (null != LoginStatus.UserInfo && !string.IsNullOrEmpty(LoginStatus.UserInfo.PhotoPath))
             {
                 DoctorModel userInfo = LoginStatus.UserInfo;
@@ -91,8 +93,17 @@ namespace Doctor.Panels
                 }
                 else
                 {
-                    HospitalModel hospital = HospitalDAL.GetById((long)userInfo.Hospital_id);
-                    lbl_hospital.Text = hospital.Name;
+                    string responseStr = null;
+                    bgWorker.DoWork += (a, b) =>
+                    {
+                        responseStr = HttpHelper.ConnectionForResult("HospitalInfoHandler.ashx", userInfo.Hospital_id.ToString());
+                    };
+                    bgWorker.RunWorkerCompleted += (a, b) =>
+                    {
+                        HospitalModel hospital = JsonConvert.DeserializeObject<HospitalModel>(responseStr);
+                        lbl_hospital.Text = hospital.Name;
+                    };
+                    bgWorker.RunWorkerAsync();
                 }
 
                 lbl_license.Text = (userInfo.LicenseNo == null ? "未填写" : userInfo.LicenseNo);
@@ -109,7 +120,8 @@ namespace Doctor.Panels
                     lbl_ifAuth.Text = "未认证";
                     lbl_ifAuth.ForeColor = Color.Red;
                 }
-             }
-       }
+            }
+            this.Cursor = Cursors.Default;
+        }
     }
 }

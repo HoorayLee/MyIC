@@ -24,7 +24,18 @@ namespace Doctor.DAL
                 return ToModel(row);
             }
         }
-        
+
+        public static Hat_areaModel[] GetAll()
+        {
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_area");
+            Hat_areaModel[] hat_area = new Hat_areaModel[table.Rows.Count];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                hat_area[i] = ToModel(table.Rows[i]);
+            }
+            return hat_area;
+        }
+
         public static Hat_areaModel[] GetAllByCityId(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_area where hat_area.father = (select cityID from hat_city where hat_city.id = @id)",

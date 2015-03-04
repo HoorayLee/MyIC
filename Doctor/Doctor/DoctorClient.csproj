@@ -216,10 +216,6 @@
     <None Include="Resources\关于.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Doctor.DAL\Doctor.DAL.csproj">
-      <Project>{a2fda26d-29ee-451a-8bc3-9cb4d24655b6}</Project>
-      <Name>Doctor.DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Doctor.Model\Doctor.Model.csproj">
       <Project>{d6025d65-5ac6-41fd-bbd5-8f1a0cec000f}</Project>
       <Name>Doctor.Model</Name>
