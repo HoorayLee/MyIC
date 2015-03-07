@@ -65,8 +65,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckUsernameExistHandler.ashx.cs">
+      <DependentUpon>CheckUsernameExistHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="DiagnosisHandler.ashx.cs">
       <DependentUpon>DiagnosisHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalInfoHandler.ashx.cs">
+      <DependentUpon>HospitalInfoHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="HospitalListHandler.ashx.cs">
       <DependentUpon>HospitalListHandler.ashx</DependentUpon>
@@ -112,6 +118,8 @@
     <Content Include="PatientInfoHandler.ashx" />
     <Content Include="SelfCheckPhotosHandler.ashx" />
     <Content Include="SelfCheckPhotoDownloadHandler.ashx" />
+    <Content Include="HospitalInfoHandler.ashx" />
+    <Content Include="CheckUsernameExistHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

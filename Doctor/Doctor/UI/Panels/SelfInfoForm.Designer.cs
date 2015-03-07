@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_license = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_photo)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -86,6 +87,7 @@
             this.picBox_photo.Location = new System.Drawing.Point(17, 20);
             this.picBox_photo.Name = "picBox_photo";
             this.picBox_photo.Size = new System.Drawing.Size(133, 187);
+            this.picBox_photo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_photo.TabIndex = 2;
             this.picBox_photo.TabStop = false;
             // 
@@ -113,6 +115,7 @@
             this.picBox_license.Location = new System.Drawing.Point(17, 142);
             this.picBox_license.Name = "picBox_license";
             this.picBox_license.Size = new System.Drawing.Size(133, 187);
+            this.picBox_license.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_license.TabIndex = 2;
             this.picBox_license.TabStop = false;
             // 
@@ -158,9 +161,9 @@
             this.lbl_hospital.AutoSize = true;
             this.lbl_hospital.Location = new System.Drawing.Point(128, 69);
             this.lbl_hospital.Name = "lbl_hospital";
-            this.lbl_hospital.Size = new System.Drawing.Size(77, 12);
+            this.lbl_hospital.Size = new System.Drawing.Size(41, 12);
             this.lbl_hospital.TabIndex = 0;
-            this.lbl_hospital.Text = "所属医院填此";
+            this.lbl_hospital.Text = "载入中";
             // 
             // label2
             // 
@@ -196,6 +199,7 @@
             this.ClientSize = new System.Drawing.Size(434, 594);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.Name = "SelfInfoForm";
             this.Text = "个人信息";
             this.Load += new System.EventHandler(this.SelfInfoForm_Load);
@@ -225,6 +229,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.ComponentModel.BackgroundWorker bgWorker;
 
     }
 }

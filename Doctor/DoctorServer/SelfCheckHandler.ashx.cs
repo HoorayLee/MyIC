@@ -22,9 +22,36 @@ namespace DoctorServer
             StreamReader reader = new StreamReader(context.Request.InputStream, Encoding.UTF8);
             string requestStr = reader.ReadToEnd();
 
+            //返回所有自检结果，其中本地区的置前
             if ("ListAll".Equals(requestStr))
             {
-                //返回所有本地区的所有自检结果
+                ////获取IP地理信息
+                //string hostIP = context.Request.UserHostAddress;
+                //IPRecord ip = HttpHelper.GetIPRecord(hostIP);
+
+                ////通过IP地理信息获取所在区域的编号
+                //RecordModel[] recordModels = null;
+                //if (string.IsNullOrEmpty(ip.Province))
+                //{
+                //    //返回所有的自检
+                //    recordModels = RecordDAL.GetAll();
+                //}
+                //else if (string.IsNullOrEmpty(ip.City))
+                //{
+                //    //返回指定省份的自检
+                //    recordModels = RecordDAL.GetAllProvinceFirst(ip.Province);
+                //}
+                //else if (string.IsNullOrEmpty(ip.District))
+                //{
+                //    //返回指定城市的自检
+                //    recordModels = RecordDAL.GetAllCityFirst(ip.City);
+                //}
+                //else
+                //{
+                //    //返回指定区域的自检
+                //    recordModels = RecordDAL.GetAllAreaFirst(ip.District);
+                //}
+
                 RecordModel[] recordModels = RecordDAL.GetAll();
                 JObject jObj = new JObject();
                 jObj.Add("count", recordModels.Length);

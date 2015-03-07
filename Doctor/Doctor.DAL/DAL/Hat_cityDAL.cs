@@ -26,6 +26,18 @@ namespace Doctor.DAL
             }
         }
 
+        public static Hat_cityModel[] GetAll()
+        {
+            DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_city");
+            Hat_cityModel[] hat_city = new Hat_cityModel[table.Rows.Count];
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                hat_city[i] = ToModel(table.Rows[i]);
+            }
+            return hat_city;
+        }
+
+
         public static Hat_cityModel[] GetAllByProvinceId(int id)
         {
             DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_city where hat_city.father = (select provinceID from hat_province where hat_province.id = @id)", 

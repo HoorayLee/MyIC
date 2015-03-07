@@ -39,10 +39,10 @@
             this.picBox_register = new System.Windows.Forms.PictureBox();
             this.picBox_settings = new System.Windows.Forms.PictureBox();
             this.picBox_help = new System.Windows.Forms.PictureBox();
-            this.picBox_exit = new System.Windows.Forms.PictureBox();
             this.panel = new System.Windows.Forms.Panel();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lbl_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbl_loc = new System.Windows.Forms.ToolStripStatusLabel();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_check)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_message)).BeginInit();
@@ -53,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_register)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_settings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_help)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_exit)).BeginInit();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,7 +106,6 @@
             this.flowLayoutPanel2.Controls.Add(this.picBox_register);
             this.flowLayoutPanel2.Controls.Add(this.picBox_settings);
             this.flowLayoutPanel2.Controls.Add(this.picBox_help);
-            this.flowLayoutPanel2.Controls.Add(this.picBox_exit);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(606, 87);
@@ -128,7 +126,8 @@
             // 
             this.picBox_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBox_logout.Image = global::Doctor.Properties.Resources.注销;
-            this.picBox_logout.Location = new System.Drawing.Point(89, 3);
+            this.picBox_logout.Location = new System.Drawing.Point(92, 3);
+            this.picBox_logout.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.picBox_logout.Name = "picBox_logout";
             this.picBox_logout.Size = new System.Drawing.Size(80, 80);
             this.picBox_logout.TabIndex = 0;
@@ -139,7 +138,8 @@
             // 
             this.picBox_register.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBox_register.Image = ((System.Drawing.Image)(resources.GetObject("picBox_register.Image")));
-            this.picBox_register.Location = new System.Drawing.Point(175, 3);
+            this.picBox_register.Location = new System.Drawing.Point(181, 3);
+            this.picBox_register.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.picBox_register.Name = "picBox_register";
             this.picBox_register.Size = new System.Drawing.Size(80, 80);
             this.picBox_register.TabIndex = 0;
@@ -150,7 +150,8 @@
             // 
             this.picBox_settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBox_settings.Image = global::Doctor.Properties.Resources.设置;
-            this.picBox_settings.Location = new System.Drawing.Point(261, 3);
+            this.picBox_settings.Location = new System.Drawing.Point(270, 3);
+            this.picBox_settings.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.picBox_settings.Name = "picBox_settings";
             this.picBox_settings.Size = new System.Drawing.Size(80, 80);
             this.picBox_settings.TabIndex = 0;
@@ -160,23 +161,13 @@
             // 
             this.picBox_help.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBox_help.Image = global::Doctor.Properties.Resources.关于;
-            this.picBox_help.Location = new System.Drawing.Point(347, 3);
+            this.picBox_help.Location = new System.Drawing.Point(359, 3);
+            this.picBox_help.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
             this.picBox_help.Name = "picBox_help";
             this.picBox_help.Size = new System.Drawing.Size(80, 80);
             this.picBox_help.TabIndex = 0;
             this.picBox_help.TabStop = false;
             this.picBox_help.Click += new System.EventHandler(this.picBox_help_Click);
-            // 
-            // picBox_exit
-            // 
-            this.picBox_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBox_exit.Image = global::Doctor.Properties.Resources.退出;
-            this.picBox_exit.Location = new System.Drawing.Point(433, 3);
-            this.picBox_exit.Name = "picBox_exit";
-            this.picBox_exit.Size = new System.Drawing.Size(80, 80);
-            this.picBox_exit.TabIndex = 0;
-            this.picBox_exit.TabStop = false;
-            this.picBox_exit.Click += new System.EventHandler(this.picBox_exit_Click);
             // 
             // panel
             // 
@@ -189,7 +180,8 @@
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbl_status});
+            this.lbl_status,
+            this.lbl_loc});
             this.statusStrip.Location = new System.Drawing.Point(0, 418);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(606, 22);
@@ -200,6 +192,12 @@
             this.lbl_status.Name = "lbl_status";
             this.lbl_status.Size = new System.Drawing.Size(212, 17);
             this.lbl_status.Text = "账户名显示于此（未登录显示未登录）";
+            // 
+            // lbl_loc
+            // 
+            this.lbl_loc.Name = "lbl_loc";
+            this.lbl_loc.Size = new System.Drawing.Size(92, 17);
+            this.lbl_loc.Text = "请检查网络连接";
             // 
             // MainForm
             // 
@@ -214,6 +212,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "医生端";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBox_check)).EndInit();
@@ -225,7 +224,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_register)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_settings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_help)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_exit)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -238,7 +236,6 @@
         private System.Windows.Forms.PictureBox picBox_login;
         private System.Windows.Forms.PictureBox picBox_logout;
         private System.Windows.Forms.PictureBox picBox_settings;
-        private System.Windows.Forms.PictureBox picBox_exit;
         private System.Windows.Forms.PictureBox picBox_message;
         private System.Windows.Forms.PictureBox picBox_check;
         private System.Windows.Forms.PictureBox picBox_selfInfo;
@@ -249,6 +246,7 @@
         private System.Windows.Forms.PictureBox picBox_register;
         private System.Windows.Forms.ToolStripStatusLabel lbl_status;
         private System.Windows.Forms.PictureBox picBox_help;
+        private System.Windows.Forms.ToolStripStatusLabel lbl_loc;
     }
 }
 

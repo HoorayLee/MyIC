@@ -107,6 +107,81 @@ namespace Doctor.DAL
             record.Hat_area_id = (System.Int32)row["hat_area_id"];
             return record;
         }
+
+//        public static RecordModel[] GetAllByProvinceName(string province)
+//        {
+//            try
+//            {
+//                //获取省的编号
+//                DataTable table = SqlHelper.ExecuteDataTable(@"select * from hat_province where province like '@province%'",
+//                    new SqlParameter("@province", province));
+//                DataRow provinceRow = table.Rows[0];
+
+//                SqlHelper.ExecuteDataTable(@"select * from Record where hat_area_")
+//            }
+//            catch (SqlException)
+//            {
+//                return null;
+//            }
+//        }
+
+//        public static RecordModel[] GetAllCityFirst(string city)
+//        {
+//            try
+//            {
+//                DataTable cityTable = SqlHelper.ExecuteDataTable(@"select * from hat_city where city like '@city%'",
+//                    new SqlParameter("@city", city));
+//                DataRow cityRow = cityTable.Rows[0];
+
+//                //通过city找所有底下的区域
+//                Hat_areaModel[] areas = Hat_areaDAL.GetAllByCityId((int)cityRow["id"]);
+
+//                //通过区域找相关联的自检
+//                List<RecordModel> recordList = new List<RecordModel>();
+//                foreach (var area in areas)
+//                {
+//                    DataTable table = SqlHelper.ExecuteDataTable(@"select * from Record where hat_area_id = @id 
+//                        union select * from Record where hat_area_id != @id",
+//                        new SqlParameter("@id", area.Id));
+//                    foreach (DataRow row in table.Rows)
+//                    {
+//                        recordList.Add(ToModel(row));
+//                    }
+//                }
+//                return recordList.ToArray();
+//            }
+//            catch (SqlException)
+//            {
+//                return null;
+//            }
+//        }
+
+//        public static RecordModel[] GetAllAreaFirst(string area)
+//        {
+//            try
+//            {
+//                //获取地区编号
+//                int area_id = (int)SqlHelper.ExecuteScalar(@"select id from hat_area where area like '@area'",
+//                    new SqlParameter("@area", area));
+
+//                //根据地区编号获取所有记录
+//                DataTable table = SqlHelper.ExecuteDataTable(@"select * from Record where hat_area_id = @id 
+//                    union select * from Record where hat_area_id != @id",
+//                    new SqlParameter("@id", area_id));
+
+//                int nbRows = table.Rows.Count;
+//                RecordModel[] models = new RecordModel[nbRows];
+//                for (int i = 0; i < nbRows; i++)
+//                {
+//                    models[i] = ToModel(table.Rows[i]);
+//                }
+//                return models;
+//            }
+//            catch (SqlException)
+//            {
+//                return null;
+//            }
+//        }
     }
 
 }

@@ -35,6 +35,7 @@ namespace Doctor.Forms
         /// <param name="e"></param>
         private void SelfCheckDetailForm_Load(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             //获取与病人有关的信息
             string result = HttpHelper.ConnectionForResult("PatientInfoHandler.ashx", 
                 record.User_id.ToString());
@@ -65,7 +66,7 @@ namespace Doctor.Forms
                 for (int i = 0; i < nbPhotos; i++)
                 {
                     string photoPath = jObj["content"][i].ToString();
-                    if(!HttpHelper.DownloadFile("SelfCheckPhotoDownloadHandler.ashx", photoPath))
+                    if (!HttpHelper.DownloadFile("SelfCheckPhotoDownloadHandler.ashx", photoPath))
                     {
                         MessageBox.Show("获取图片失败");
                     }
@@ -119,8 +120,8 @@ namespace Doctor.Forms
             {
                 tb_comment.ReadOnly = true;
                 lbl_ifAuth.Visible = true;
-            }
-
+            } 
+            this.Cursor = Cursors.Default;
         }
         /// <summary>
         /// 点击事件：提交
@@ -145,8 +146,10 @@ namespace Doctor.Forms
             model.Result = comment;
             model.Time = System.DateTime.Now;
             model.Doc_id = LoginStatus.UserInfo.Doc_id;
-            
+
+            this.Cursor = Cursors.WaitCursor;
             string result = HttpHelper.ConnectionForResult("DiagnosisHandler.ashx", JsonConvert.SerializeObject(model));
+            this.Cursor = Cursors.Default;
             if (null == result)
             {
                 MessageBox.Show("连接失败");

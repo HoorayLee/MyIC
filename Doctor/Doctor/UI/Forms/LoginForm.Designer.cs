@@ -60,7 +60,6 @@
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(118, 21);
             this.tb_username.TabIndex = 1;
-            this.tb_username.Text = "tony";
             // 
             // tb_password
             // 
@@ -69,7 +68,6 @@
             this.tb_password.PasswordChar = '*';
             this.tb_password.Size = new System.Drawing.Size(118, 21);
             this.tb_password.TabIndex = 2;
-            this.tb_password.Text = "123";
             // 
             // btn_login
             // 
@@ -106,6 +104,7 @@
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "登录";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

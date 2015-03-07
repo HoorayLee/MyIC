@@ -32,6 +32,38 @@ namespace Doctor
 
             //注册登录信息改变时事件
             LoginStatus.LoginStatusChanged += LoginStatus_LoginStatusChanged;
+
+            //地理信息改变事件
+            LoginStatus.IPLocationChanged += LoginStatus_IPLocationChanged;
+
+            //每5分钟更新一下IP位置信息
+            LoginStatus.RefreshIP();
+            Timer timer = new Timer();
+            timer.Enabled = true;
+            timer.Interval = 5 * 60 * 1000;
+            timer.Tick += (a, b) => { LoginStatus.RefreshIP(); };
+            timer.Start();
+            
+            //加载省市县数据
+            GeneralHelper.LoadLocationData();
+
+            lbl_loc.Text = "无法获取地理位置";
+        }
+
+        /// <summary>
+        /// IP地址信息改变时触发
+        /// </summary>
+        /// <param name="e"></param>
+        void LoginStatus_IPLocationChanged(EventArgs e)
+        {
+            if (LoginStatus.UserIP != null)
+            {
+                lbl_loc.Text = LoginStatus.UserIP.ToString() + "的用户";
+            }
+            else
+            {
+                lbl_loc.Text = "无法获取地理位置";
+            }
         }
 
         private void Login()
@@ -52,12 +84,16 @@ namespace Doctor
 
             //右侧Panel清除所有
             panel.Controls.Clear();
+
+            //将登录名存入设置文件中
+            Settings.Default.LastUserName = LoginStatus.UserInfo.Name;
+            Settings.Default.Save();
         }
 
         private void Logout()
         {
             //状态栏显示
-            lbl_status.Text = "未登录";
+            lbl_status.Text = "请登录";
 
             //左侧按钮禁用
             picBox_check.Enabled = false;
@@ -89,19 +125,6 @@ namespace Doctor
             {
                 //登出状态
                 Logout();
-            }
-        }
-
-        /// <summary>
-        /// 点击事件：退出
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void picBox_exit_Click(object sender, EventArgs e)
-        {
-            if(MessageBox.Show("确定要退出吗？", "退出", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-            {
-                this.Close();
             }
         }
 
@@ -201,6 +224,17 @@ namespace Doctor
             new AboutBox().ShowDialog();
         }
 
-
+        /// <summary>
+        /// 窗体关闭触发事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("确定要退出吗？", "退出", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+            } 
+        }
     }
 }

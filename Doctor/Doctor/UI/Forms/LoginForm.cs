@@ -1,4 +1,5 @@
 ﻿using Doctor.Model;
+using Doctor.Properties;
 using Doctor.Util;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -57,7 +58,10 @@ namespace Doctor.Forms
             jObj.Add("password", MD5.GetMD5(password));
 
             string urlStr = "LoginHandler.ashx";
+
+            this.Cursor = Cursors.WaitCursor;
             string result = HttpHelper.ConnectionForResult(urlStr, jObj.ToString());
+            this.Cursor = Cursors.Default;
 
             //连接失败
             if (null == result)
@@ -90,6 +94,17 @@ namespace Doctor.Forms
                     MessageBox.Show("服务器返回数据异常");
                     return;
             }
+        }
+
+        /// <summary>
+        /// 窗口载入时触发
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            //用户名输入控件显示上次登录用户名
+            tb_username.Text = Settings.Default.LastUserName;
         }
     }
 }

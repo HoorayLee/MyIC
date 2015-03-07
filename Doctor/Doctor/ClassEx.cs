@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -52,6 +53,29 @@ namespace Doctor
             {
                 builder.Remove(builder.Length - newLine.Length, newLine.Length);
             }
+        }
+
+        /// <summary>
+        /// 将流用UTF8解析为字符串
+        /// </summary>
+        /// <param name="stream"></param>
+        public static string ToUTF8String(this Stream stream)
+        {
+            using(StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        /// <summary>
+        /// 将字符串以UTF8写入流
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="content"></param>
+        public static void WriteUTF8String(this Stream stream, string content)
+        {
+            byte[] buf = Encoding.UTF8.GetBytes(content);
+            stream.Write(buf, 0, buf.Length);
         }
     }
 }
