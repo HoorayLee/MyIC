@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MULEWEN</Machine>
+    <WindowsUser>乐文</WindowsUser>
+    <TargetPlatformIdentifier>Windows Phone</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
+    <PackageIdentityName>645118a7-f02c-4f2d-8e68-e45e241db056</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\dentists.dll">
+      <PackagePath>dentists.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.winmd">
+      <PackagePath>AMapSDKV2Comp.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Maps.dll">
+      <PackagePath>Com.AMap.Api.Maps.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Services.dll">
+      <PackagePath>Com.AMap.Api.Services.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Google.ProtocolBuffers.dll">
+      <PackagePath>Google.ProtocolBuffers.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\Tamir.SharpSSH.1.1.1.13\lib\Tamir.SharpSSH.dll">
+      <PackagePath>Tamir.SharpSSH.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll">
+      <PackagePath>AMapSDKV2Comp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\bktile.data">
+      <PackagePath>Assets\bktile.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ft2.data">
+      <PackagePath>Assets\ft2.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\icn_hv3.data">
+      <PackagePath>Assets\icn_hv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\icn_lv3.data">
+      <PackagePath>Assets\icn_lv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\lr.data">
+      <PackagePath>Assets\lr.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ra.data">
+      <PackagePath>Assets\ra.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\rd.data">
+      <PackagePath>Assets\rd.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\style_lv3.data">
+      <PackagePath>Assets\style_lv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\style_slv3.data">
+      <PackagePath>Assets\style_slv3.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\wk.data">
+      <PackagePath>Assets\wk.data</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\DrawLinePixelShader.cso">
+      <PackagePath>Assets\DrawLinePixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\DrawLineVertexShader.cso">
+      <PackagePath>Assets\DrawLineVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\DrawPolygonPixelShader.cso">
+      <PackagePath>Assets\DrawPolygonPixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\DrawPolygonVertexShader.cso">
+      <PackagePath>Assets\DrawPolygonVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\InsertPicturePixelShader.cso">
+      <PackagePath>Assets\InsertPicturePixelShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\InsertPictureVertexShader.cso">
+      <PackagePath>Assets\InsertPictureVertexShader.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\lt.cso">
+      <PackagePath>Assets\lt.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ltc.cso">
+      <PackagePath>Assets\ltc.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\oc.cso">
+      <PackagePath>Assets\oc.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ov2.cso">
+      <PackagePath>Assets\ov2.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ov3.cso">
+      <PackagePath>Assets\ov3.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\v3t.cso">
+      <PackagePath>Assets\v3t.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\vvt.cso">
+      <PackagePath>Assets\vvt.cso</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\LibMap.dll">
+      <PackagePath>LibMap.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\AlignmentGrid.png">
+      <PackagePath>Assets\AlignmentGrid.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\ApplicationIcon.png">
+      <PackagePath>Assets\ApplicationIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\BadgeLogo.png">
+      <PackagePath>Assets\BadgeLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\SquareTile150x150.png">
+      <PackagePath>Assets\SquareTile150x150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\SquareTile71x71.png">
+      <PackagePath>Assets\SquareTile71x71.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\WideLogo.png">
+      <PackagePath>Assets\WideLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Tiles\FlipCycleTileLarge.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileLarge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Tiles\FlipCycleTileMedium.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileMedium.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Tiles\FlipCycleTileSmall.png">
+      <PackagePath>Assets\Tiles\FlipCycleTileSmall.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Tiles\IconicTileMediumLarge.png">
+      <PackagePath>Assets\Tiles\IconicTileMediumLarge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Assets\Tiles\IconicTileSmall.png">
+      <PackagePath>Assets\Tiles\IconicTileSmall.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,72 @@
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\ApplicationIcon.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\IconicTileSmall.png
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\dentists.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\dentists.pdb
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\resources.pri
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\AppxManifest.xml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\dentists.build.appxrecipe
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Properties\WMAppManifest.xml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\AppManifest.xaml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\dentists_Debug_ARM.xap
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\AMapSDKV2Comp.winmd
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Com.AMap.Api.Maps.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Com.AMap.Api.Services.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Google.ProtocolBuffers.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\AMapSDKV2Comp.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\App.g.cs
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\MainPage.g.cs
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\scan.g.cs
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.g.resources
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.Resources.AppResources.resources
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.csproj.GenerateResource.Cache
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.pdb
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\priconfig.xml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\priconfig.xml.intermediate
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\layout.resfiles
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\layout.resfiles.intermediate
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\resources.resfiles
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\resources.resfiles.intermediate
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\pri.resfiles
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\pri.resfiles.intermediate
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\qualifiers.txt
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\qualifiers.txt.intermediate
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\MDILProjectFiles.xml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\XapCacheFile.xml
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\dentists.csprojResolveAssemblyReference.cache
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\Bin\ARM\Debug\Tamir.SharpSSH.dll
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\imageControl.g.cs
+C:\Users\乐文\Documents\Visual Studio 2013\Projects\dentists\dentists\obj\ARM\Debug\Page1.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.csprojResolveAssemblyReference.cache
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\App.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\imageControl.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\MainPage.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\Page1.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\scan.g.cs
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.g.resources
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.Resources.AppResources.resources
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.csproj.GenerateResource.Cache
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\ApplicationIcon.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Assets\Tiles\IconicTileSmall.png
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\dentists.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\dentists.pdb
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\AppManifest.xaml
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Properties\WMAppManifest.xml
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\AMapSDKV2Comp.winmd
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Com.AMap.Api.Maps.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Com.AMap.Api.Services.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Google.ProtocolBuffers.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\Tamir.SharpSSH.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\Bin\ARM\Debug\AMapSDKV2Comp.dll
+C:\Users\leehorray\Desktop\dentists\dentists\dentists\obj\ARM\Debug\dentists.pdb

@@ -1,0 +1,118 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="dentists.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="clr-namespace:Microsoft.Phone.Maps;assembly=Microsoft.Phone.Maps"
+    xmlns:maps1="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="WhiteSmoke">
+
+        <!-- 本地化说明:
+            若要本地化显示的字符串，请将其值复制到应用程序的非特定语言资源文件(AppResources.resx)
+            中的适当命名的键，然后
+            将属性的引号之间的硬编码文本值
+            替换为其路径指向该字符串名称的绑定子句。
+
+            例如:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            此绑定指向模板的名为“ApplicationTitle”的字符串资源。
+
+            在“项目属性”选项卡中添加受支持的语言将会为
+            每种语言创建一个新的 resx 文件，该文件可以包含 UI 字符串的翻译值
+            。这些示例中的绑定将导致在运行时从
+            与应用程序的 CurrentUICulture 匹配的 .resx 文件中
+            提取属性的值。
+         -->
+
+        <!--Panorama 控件-->
+        <phone:Panorama Loaded="Panorama_Loaded_1">
+            <phone:Panorama.Title>
+                <TextBlock Text="geek&#38;dentist" FontSize="75" Margin="0,20,0,0" Height="99" Foreground="Black"></TextBlock>
+            </phone:Panorama.Title>
+
+            <!--Panorama 项目一-->
+            <phone:PanoramaItem Header="your situation" Foreground="Black">
+                <!--具有文字环绕的单行列表-->
+                <Canvas>
+                    <Rectangle x:Name="rec1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="100" Margin="330,344,-10,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+                    <Canvas Margin="150,80,0,0" Width="250" Height="400">
+
+                    </Canvas>
+                    <Button Content="Scan Now" Background="White" Foreground="Black" FontSize="30" HorizontalAlignment="Center" Canvas.Left="102" Canvas.Top="485" Click="Button_Click_1" ></Button>
+                    <Canvas Height="390" ManipulationDelta="Canvas_ManipulationDelta" Canvas.Top="70" ManipulationCompleted="general_ManipulationCompleted" x:Name="general" Width="135">
+                        <Canvas.Clip>
+                            <RectangleGeometry Rect="0,0,130,360"/>
+                        </Canvas.Clip>
+                        <Canvas Height="70" Width="70" Canvas.Left="60" Canvas.Top="110" x:Name="canvas3">
+                            <Ellipse Fill="orchid" Height="70" Stroke="orchid" StrokeThickness="20"  Width="70" x:Name="ellipse2"/>
+                            <TextBlock  Text="23"  Foreground="AliceBlue" FontSize="25" Height="40" Canvas.Top="15" Canvas.Left="20" x:Name="text2"/>
+                        </Canvas>
+                        <Canvas Height="70" Width="70"  Canvas.Top="-70" x:Name="canvas1">
+                            <Ellipse Fill="orchid " Height="70" Width="70" Stroke="orchid " StrokeThickness="20" x:Name="ellipse5" />
+                            <TextBlock  Text="21"  Foreground="AliceBlue" FontSize="25" Height="40" Canvas.Top="15" Canvas.Left="20" x:Name="text5"/>
+                        </Canvas>
+                        <Canvas Height="70" Width="70"  Canvas.Top="20" x:Name="canvas2">
+                            <Ellipse Fill="orchid " Height="70" Width="70" Stroke="orchid " StrokeThickness="20" x:Name="ellipse1" />
+                            <TextBlock  Text="22"  Foreground="AliceBlue" FontSize="25" Height="40" Canvas.Top="15" Canvas.Left="20" x:Name="text1"/>
+                        </Canvas>
+                        <Canvas Height="70" Width="70" Canvas.Top="200" x:Name="canvas4">
+                            <Ellipse Fill="orchid " Height="70" Width="70" Stroke="orchid " StrokeThickness="20"  x:Name="ellipse3"/>
+                            <TextBlock  Text="24"  Foreground="AliceBlue" FontSize="25" Height="40" Canvas.Top="15" Canvas.Left="20" x:Name="text3"/>
+                        </Canvas>
+                        <Canvas Height="70" Width="70" Canvas.Top="290" x:Name="canvas5">
+                            <Ellipse Fill="orchid " Height="70" Width="70" Stroke="orchid " StrokeThickness="20"  x:Name="ellipse4"/>
+                            <TextBlock  Text="25"  Foreground="AliceBlue" FontSize="25" Height="40" Canvas.Top="15" Canvas.Left="20" x:Name="text4"/>
+                        </Canvas>
+                    </Canvas>
+                </Canvas>
+            </phone:PanoramaItem>
+
+            <!--Panorama 项目二-->
+            <phone:PanoramaItem Header="last diagnosis" Foreground="Black">
+                <StackPanel HorizontalAlignment="Left" Height="608" Margin="-2,-8,0,0" VerticalAlignment="Top" Width="412">
+                    <Button Name="test" HorizontalAlignment="Left" Height="170" Margin="0,30,0,10" Width="380" >
+                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166"/>
+                    </Button>
+                    <Button HorizontalAlignment="Left" Height="170" Margin="0,0,0,0" Width="380" Click="Button_Click_Map">
+                        <Canvas x:Name="map" Height="130" Width="335"></Canvas>
+                    </Button>
+                    <Button  HorizontalAlignment="Left" Height="170" Margin="0,0,0,10" Width="380" Click="Button_Click_1">
+                        <TextBlock Height="132" TextWrapping="Wrap" Text="{Binding content, Mode=TwoWay}" Width="166" />
+                    </Button>
+                </StackPanel>
+            </phone:PanoramaItem>
+
+            <!--全景项目三-->
+            <phone:PanoramaItem Header="third item" Foreground="Black" Orientation="Horizontal">
+                <!--具有大型图像占位符的双倍宽度的全景-->
+                <Grid>
+                        
+                </Grid>
+            </phone:PanoramaItem>
+            <Button Content="Button" HorizontalAlignment="Left" Height="100" Margin="237,0,0,0" VerticalAlignment="Top"/>
+        </phone:Panorama>
+
+        <!--取消注释，以显示对齐网格，从而帮助确保
+            控件在公用边界上对齐。图像在系统栏中显示时的
+            上边距为 -32px。如果隐藏了系统栏，则将此值设为 0
+            (或完全删除边距)。
+
+            在发送之前删除此 XAML 和图像本身。-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+
+    </Grid>
+</phone:PhoneApplicationPage>

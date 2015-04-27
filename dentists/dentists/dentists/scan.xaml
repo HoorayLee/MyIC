@@ -1,0 +1,29 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="dentists.scan"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid>
+            <Grid x:Name="pictures" >
+                <ScrollViewer>
+                    <StackPanel x:Name="stack"/>
+                </ScrollViewer>
+            </Grid>
+            <Button  x:Name="getpicture" Margin="270,656,10,12" FontSize="30" Width="200" Height="100" Content="get picture" Click="Button_Click_1"/>
+            <Button  Margin="10,658,270,10" FontSize="25" Width="200" Height="100" Content="send picture" Click="Button_Click_send"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

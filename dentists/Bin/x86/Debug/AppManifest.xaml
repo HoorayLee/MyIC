@@ -1,0 +1,13 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="dentists" EntryPointType="dentists.App" RuntimeVersion="6.7.50308.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="dentists" Source="dentists.dll" />
+    <AssemblyPart x:Name="Coding4Fun.Toolkit.Controls" Source="Coding4Fun.Toolkit.Controls.dll" />
+    <AssemblyPart x:Name="Coding4Fun.Toolkit" Source="Coding4Fun.Toolkit.dll" />
+    <AssemblyPart x:Name="Com.AMap.Api.Maps" Source="Com.AMap.Api.Maps.dll" />
+    <AssemblyPart x:Name="Com.AMap.Api.Services" Source="Com.AMap.Api.Services.dll" />
+    <AssemblyPart x:Name="Google.ProtocolBuffers" Source="Google.ProtocolBuffers.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
+    <AssemblyPart x:Name="Tamir.SharpSSH" Source="Tamir.SharpSSH.dll" />
+    <AssemblyPart x:Name="AMapSDKV2Comp" Source="AMapSDKV2Comp.dll" />
+  </Deployment.Parts>
+</Deployment>

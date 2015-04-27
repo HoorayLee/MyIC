@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="dentists.Page.im.Remassage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:my="clr-namespace:dentists.Page.im"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <StackPanel  Orientation="Vertical" x:Name="LayoutRoot">
+        <my:TimeBox Name="time"></my:TimeBox>
+        <my:Imbox Name="message"/>
+    </StackPanel>
+</UserControl>

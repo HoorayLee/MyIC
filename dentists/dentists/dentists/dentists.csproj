@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{645118A7-F02C-4F2D-8E68-E45E241DB056}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dentists</RootNamespace>
+    <AssemblyName>dentists</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>dentists_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>dentists.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="helper\sendImg.cs" />
+    <Compile Include="helper\sshhelper.cs" />
+    <Compile Include="imageControl.xaml.cs">
+      <DependentUpon>imageControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="scan.xaml.cs">
+      <DependentUpon>scan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="imageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="scan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\bktile.data" />
+    <Content Include="Assets\DrawLinePixelShader.cso" />
+    <Content Include="Assets\DrawLineVertexShader.cso" />
+    <Content Include="Assets\DrawPolygonPixelShader.cso" />
+    <Content Include="Assets\DrawPolygonVertexShader.cso" />
+    <Content Include="Assets\ft2.data" />
+    <Content Include="Assets\icn_hv3.data" />
+    <Content Include="Assets\icn_lv3.data" />
+    <Content Include="Assets\InsertPicturePixelShader.cso" />
+    <Content Include="Assets\InsertPictureVertexShader.cso" />
+    <Content Include="Assets\lr.data" />
+    <Content Include="Assets\lt.cso" />
+    <Content Include="Assets\ltc.cso" />
+    <Content Include="Assets\oc.cso" />
+    <Content Include="Assets\ov2.cso" />
+    <Content Include="Assets\ov3.cso" />
+    <Content Include="Assets\ra.data" />
+    <Content Include="Assets\rd.data" />
+    <Content Include="Assets\style_lv3.data" />
+    <Content Include="Assets\style_slv3.data" />
+    <Content Include="Assets\v3t.cso" />
+    <Content Include="Assets\vvt.cso" />
+    <Content Include="Assets\wk.data" />
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LibMap.dll" />
+    <Resource Include="Assets\PanoramaBackground.png" />
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\BadgeLogo.png" />
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\SquareTile150x150.png" />
+    <Content Include="Assets\SquareTile71x71.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\WideLogo.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AMapSDKV2Comp">
+      <HintPath>..\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.winmd</HintPath>
+    </Reference>
+    <Reference Include="Com.AMap.Api.Maps">
+      <HintPath>..\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Com.AMap.Api.Services">
+      <HintPath>..\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Com.AMap.Api.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>..\packages\AMap3D.WindowsPhone.2.2.1.1\lib\Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Tamir.SharpSSH">
+      <HintPath>..\packages\Tamir.SharpSSH.1.1.1.13\lib\Tamir.SharpSSH.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <PropertyGroup>
+    <PreBuildEvent>
+IF $(ConfigurationName) == Debug IF $(PlatformName) == ARM goto DebugARM
+IF $(ConfigurationName) == Debug IF $(PlatformName) == x86 goto Debugx86
+IF $(ConfigurationName) == Debug IF $(PlatformName) == MSIL goto Debugx86
+IF $(ConfigurationName) == Release IF $(PlatformName) == ARM goto ReleaseARM
+IF $(ConfigurationName) == Release IF $(PlatformName) == x86 goto Releasex86
+
+:DebugARM
+echo build SDK-DebugARM
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\lib\arm\debug\LibMap.dll" "$(ProjectDir)\LibMap.dll" /Y
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\references\arm\debug\AMapSDKV2Comp.dll" "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll" /Y
+exit 0
+
+:Debugx86
+echo build SDK-Debugx86
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\lib\x86\debug\LibMap.dll" "$(ProjectDir)\LibMap.dll" /Y
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\references\x86\debug\AMapSDKV2Comp.dll" "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll" /Y
+exit 0
+
+:ReleaseARM
+echo build SDK-ReleaseARM
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\lib\arm\release\LibMap.dll" "$(ProjectDir)\LibMap.dll" /Y
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\references\arm\release\AMapSDKV2Comp.dll" "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll" /Y
+exit 0
+
+:Releasex86
+echo build SDK-Releasex86
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\lib\x86\release\LibMap.dll" "$(ProjectDir)\LibMap.dll" /Y
+copy "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\AMAP3DEngine\references\x86\release\AMapSDKV2Comp.dll" "C:\Users\leehorray\Documents\Visual Studio 2013\Projects\dentists\packages\AMap3D.WindowsPhone.2.2.1.1\lib\AMapSDKV2Comp.dll" /Y
+exit 0
+</PreBuildEvent>
+  </PropertyGroup>
+</Project>
